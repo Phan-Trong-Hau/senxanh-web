@@ -1,9 +1,10 @@
-const Home = () => {
-  return (
-    <>
-      <h1>Home page</h1>
-    </>
-  );
+import Homepage from '@/components/homepage';
+import fetchAPI from '@/utils/fetchApi';
+
+const Home = async () => {
+  const homepage = await fetchAPI('/homepage');
+
+  return <Homepage homepage={homepage} />;
 };
 
 export default Home;
