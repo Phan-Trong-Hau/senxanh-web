@@ -1,5 +1,7 @@
 'use client';
 
+import HeroBanner from './HeroBanner';
+
 type Props = {
   homepage: any;
 };
@@ -8,9 +10,9 @@ const Homepage: React.FC<Props> = ({ homepage }) => {
   const { heroBanner } = homepage?.data || {};
 
   return (
-    <div>
-      <h1>{heroBanner?.title}</h1>
-    </div>
+    <>
+      <HeroBanner {...heroBanner} />
+    </>
   );
 };
 

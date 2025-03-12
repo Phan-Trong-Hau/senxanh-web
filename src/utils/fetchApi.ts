@@ -1,13 +1,20 @@
 import qs from 'qs';
 
-export default async function fetchAPI(
-  path: string,
-  urlParamsObject = {
-    populate: '*',
-  },
+type Props = {
+  path: string;
+  urlParamsObject?: Record<string, any>;
+  options?: RequestInit;
+  isAuthenticated?: boolean;
+  isPopulate?: boolean;
+};
+
+export default async function fetchAPI({
+  path,
+  urlParamsObject = {},
   options = {},
-  isAuthenticated = false
-) {
+  isAuthenticated = false,
+  isPopulate = true,
+}: Props) {
   try {
     // Merge default and user options
     const mergedOptions = {
@@ -21,8 +28,15 @@ export default async function fetchAPI(
       ...options,
     } as RequestInit;
 
+    const populateRequest = isPopulate ? { populate: '*' } : {};
+
+    const mergedParams = {
+      ...urlParamsObject,
+      ...populateRequest,
+    };
+
     // Build request URL
-    const queryString = qs.stringify(urlParamsObject);
+    const queryString = qs.stringify(mergedParams);
 
     const requestUrl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api${path}${
       queryString ? `?${queryString}` : ''
