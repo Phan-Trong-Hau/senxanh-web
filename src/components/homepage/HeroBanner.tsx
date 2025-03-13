@@ -25,6 +25,7 @@ export default function HeroBanner({
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <button className="">Get Started</button>
+          <div>{description}</div>
         </div>
       </div>
     </div>

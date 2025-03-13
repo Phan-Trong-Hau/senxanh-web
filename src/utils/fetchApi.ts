@@ -28,7 +28,7 @@ export default async function fetchAPI({
       ...options,
     } as RequestInit;
 
-    const populateRequest = isPopulate ? { populate: '*' } : {};
+    const populateRequest = isPopulate ? { pLevel: '5' } : {};
 
     const mergedParams = {
       ...urlParamsObject,
