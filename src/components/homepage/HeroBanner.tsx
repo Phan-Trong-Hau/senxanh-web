@@ -19,7 +19,7 @@ export default function HeroBanner({
     <div className="">
       <div className="">
         <div className="">
-          <h1 className="">Welcome to our website</h1>
+          <h1 className="">{title}</h1>
           <p className="">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
