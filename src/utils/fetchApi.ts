@@ -12,7 +12,7 @@ export default async function fetchAPI({
   path,
   urlParamsObject = {},
   options = {},
-  isAuthenticated = false,
+  isAuthenticated = true,
   isPopulate = true,
 }: Props) {
   try {
