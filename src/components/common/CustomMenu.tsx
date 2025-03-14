@@ -25,10 +25,10 @@ const route = [
 
 const CustomMenu = () => {
   return (
-    <Flex justify="space-between" align="center">
+    <Flex justify="space-between" align="center" className="container">
       <div>
         <Image
-          alt="Sen Xanh"
+          alt="Sen Xanh logo"
           width={120}
           height={31}
           src={
@@ -40,7 +40,7 @@ const CustomMenu = () => {
         mode="horizontal"
         defaultSelectedKeys={['1']}
         items={route}
-        className="flex-1 justify-end"
+        className="flex-1 justify-end border-b-0"
       />
     </Flex>
   );

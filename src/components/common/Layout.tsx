@@ -12,12 +12,11 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <AntdLayout>
-      <Header className="!bg-white">
+    <AntdLayout className="!bg-white">
+      <Header className="!bg-white !px-0 sticky top-0 z-50 border-0 border-b border-gray-200 border-solid">
         <CustomMenu />
       </Header>
-      <Header />
-      <Content>{children}</Content>
+      <Content className="bg-white">{children}</Content>
     </AntdLayout>
   );
 };
