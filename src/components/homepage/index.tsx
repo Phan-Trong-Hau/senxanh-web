@@ -2,17 +2,20 @@
 
 import Layout from '../common/Layout';
 import HeroBanner from './HeroBanner';
+import SectionCTA from './SectionCTA';
 
 type Props = {
   homepage: any;
 };
 
 const Homepage: React.FC<Props> = ({ homepage }) => {
-  const { heroBanner } = homepage?.data || {};
+  const { heroBanner, CTASection } = homepage?.data || {};
 
   return (
     <Layout>
       <HeroBanner {...heroBanner} />
+
+      <SectionCTA {...CTASection} />
     </Layout>
   );
 };

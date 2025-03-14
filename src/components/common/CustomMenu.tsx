@@ -38,6 +38,7 @@ const CustomMenu = () => {
     <Flex justify="space-between" align="center" className="container">
       <div className="-mt-2">
         <Image
+          loader={({ src }) => src}
           alt="Sen Xanh logo"
           width={150}
           height={31}

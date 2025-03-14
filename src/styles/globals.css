@@ -17,6 +17,10 @@ body {
   margin: 0 auto;
 }
 
+.section {
+  margin: 5rem 0;
+}
+
 .text-primary {
   color: var(--primary) !important;
 }
