@@ -2,6 +2,8 @@
 
 :root {
   --background: #ffffff;
+  --primary: #1c74bc;
+  --secondary: #38b349;
 }
 
 body {
@@ -13,4 +15,72 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.text-secondary {
+  color: var(--secondary) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary) !important;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #0097b2, #7ed957);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-weight: 700;
+}
+/* 
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #7ed957;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary span {
+  z-index: 1;
+}
+
+.btn-primary:hover::after {
+  opacity: 1;
+} */
+
+.btn-primary:hover {
+  color: #fff !important;
+  background: linear-gradient(90deg, #008191, #65c3b1) !important;
+}
+
+.menu-items > li::after {
+  bottom: 12px !important;
+  border-bottom-width: 0px !important;
+  transition: all 0.3s ease-in-out !important;
+  opacity: 0;
+  background: var(--secondary);
+  height: 3px;
+  border-radius: 2px;
+}
+
+.menu-items > .ant-menu-item-active::after,
+.menu-items > .ant-menu-item-selected::after {
+  opacity: 1;
 }
