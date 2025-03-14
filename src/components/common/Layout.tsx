@@ -2,9 +2,9 @@
 
 import { Layout as AntdLayout } from 'antd';
 
-import Header from './Header';
+import CustomMenu from './CustomMenu';
 
-const { Content } = AntdLayout;
+const { Content, Header } = AntdLayout;
 
 type Props = {
   children: React.ReactNode;
@@ -13,6 +13,9 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <AntdLayout>
+      <Header className="!bg-white">
+        <CustomMenu />
+      </Header>
       <Header />
       <Content>{children}</Content>
     </AntdLayout>
