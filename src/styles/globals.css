@@ -6,6 +6,7 @@
   --secondary: #38b349;
   --bg-widget: url('https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/background_widget_9a0433c462.png');
   --arrow-icon: url('https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/arrow_icon_755d5720c5.png');
+  --bg-favorite-course: url('https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/bg_favorite_courses_61ee86341a.png');
 }
 
 body {
@@ -115,6 +116,13 @@ body {
   width: 20px;
   height: 20px;
 }
+.ant-carousel .slick-prev {
+  inset-inline-start: -32px;
+}
+
+.ant-carousel .slick-next {
+  inset-inline-end: -32px;
+}
 
 .ant-carousel .slick-next::after {
   transform: rotate(180deg);
@@ -141,4 +149,12 @@ body {
   padding: 1rem;
   border-radius: 5px;
   height: 380px;
+}
+
+.bg-favorite-course {
+  background: var(--bg-favorite-course) no-repeat center center/contain;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  height: 220px;
 }
