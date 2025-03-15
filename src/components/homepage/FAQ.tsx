@@ -1,7 +1,5 @@
 'use client';
 
-import { Collapse } from 'antd';
-
 import Border from '../common/Border';
 
 type Props = {
@@ -11,8 +9,6 @@ type Props = {
     description: string;
   }[];
 };
-
-const { Panel } = Collapse;
 
 const FAQs = ({ title, faqs }: Props) => {
   return (
