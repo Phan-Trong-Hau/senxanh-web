@@ -65,7 +65,7 @@ const CustomMenu = () => {
         }))}
         className="menu-items flex-1 justify-end !border-b-0"
       />
-      <Button className="btn-primary" onClick={() => {}}>
+      <Button className="btn-primary-header" onClick={() => {}}>
         Liên hệ ngay
       </Button>
     </Flex>
