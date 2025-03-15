@@ -4,6 +4,9 @@
   --background: #ffffff;
   --primary: #1c74bc;
   --secondary: #38b349;
+  --bg-widget: url('https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/background_widget_9a0433c462.png');
+  --arrow-icon: url('https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/arrow_icon_755d5720c5.png');
+  --bg-favorite-course: url('https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/bg_favorite_courses_61ee86341a.png');
 }
 
 body {
@@ -19,6 +22,32 @@ body {
 
 .section {
   margin: 5rem 0;
+}
+
+.border-primary {
+  position: relative;
+  border: var(--border-width, 2px) solid transparent;
+  border-radius: var(--border-radius, 8px);
+  background-clip: padding-box;
+}
+
+.border-primary > div {
+  position: relative;
+  z-index: 1;
+  background-color: var(--border-background-color, #fff);
+  border-radius: inherit;
+}
+
+.border-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: calc(0px - var(--border-width, 2px));
+  border-radius: calc(
+    (var(--outer-radius-offset, 2px)) + var(--border-radius, 8px)
+  );
+  background: linear-gradient(90deg, #0097b2, #7ed957);
+  z-index: 0;
 }
 
 .text-primary {
@@ -46,6 +75,7 @@ body {
   cursor: pointer;
   border-radius: 30px;
   font-weight: 700;
+  width: fit-content;
 }
 /* 
 .btn-primary::after {
@@ -74,6 +104,30 @@ body {
   background: linear-gradient(90deg, #008191, #65c3b1) !important;
 }
 
+.ant-carousel .slick-arrow {
+  opacity: 1;
+  width: 20px;
+  height: 20px;
+}
+
+.ant-carousel .slick-arrow::after {
+  background: var(--arrow-icon) no-repeat center center/contain;
+  transform: none;
+  width: 20px;
+  height: 20px;
+}
+.ant-carousel .slick-prev {
+  inset-inline-start: -32px;
+}
+
+.ant-carousel .slick-next {
+  inset-inline-end: -32px;
+}
+
+.ant-carousel .slick-next::after {
+  transform: rotate(180deg);
+}
+
 .menu-items > li::after {
   bottom: 12px !important;
   border-bottom-width: 0px !important;
@@ -87,4 +141,20 @@ body {
 .menu-items > .ant-menu-item-active::after,
 .menu-items > .ant-menu-item-selected::after {
   opacity: 1;
+}
+
+.bg-widget {
+  background: var(--bg-widget) no-repeat center center/contain;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  height: 380px;
+}
+
+.bg-favorite-course {
+  background: var(--bg-favorite-course) no-repeat center center/contain;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  height: 220px;
 }
