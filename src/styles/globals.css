@@ -21,6 +21,32 @@ body {
   margin: 5rem 0;
 }
 
+.border-primary {
+  position: relative;
+  border: var(--border-width, 2px) solid transparent;
+  border-radius: var(--border-radius, 8px);
+  background-clip: padding-box;
+}
+
+.border-primary > div {
+  position: relative;
+  z-index: 1;
+  background-color: var(--border-background-color, #fff);
+  border-radius: inherit;
+}
+
+.border-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: calc(0px - var(--border-width, 2px));
+  border-radius: calc(
+    (var(--outer-radius-offset, 2px)) + var(--border-radius, 8px)
+  );
+  background: linear-gradient(90deg, #0097b2, #7ed957);
+  z-index: 0;
+}
+
 .text-primary {
   color: var(--primary) !important;
 }
