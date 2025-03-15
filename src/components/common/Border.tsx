@@ -1,6 +1,6 @@
 'use client';
 
-import classNames from 'classnames';
+import classNames from 'classnames'
 
 type Props = {
   size?: number;

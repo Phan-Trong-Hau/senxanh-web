@@ -1,12 +1,12 @@
 'use client';
 
-import Image from 'next/image';
-import { useState } from 'react';
+import Image from 'next/image'
+import { useState } from 'react'
 
-import { Asset } from '@/utils/type';
+import { Asset } from '@/utils/type'
 
-import Border from '../common/Border';
-import Markdown from '../common/Markdown';
+import Border from '../common/Border'
+import Markdown from '../common/Markdown'
 
 type Props = {
   title: string;
@@ -24,7 +24,7 @@ const AboutUs = ({ title, widgets }: Props) => {
   return (
     <div className="container">
       <div className="section">
-        <h2 className="btn-primary w-fit mx-auto !cursor-default text-2xl !font-semibold !px-6 !py-3">
+        <h2 className="btn-primary mx-auto !cursor-default text-2xl !font-semibold !px-6 !py-3">
           {title || 'Về chúng tôi'}
         </h2>
 
