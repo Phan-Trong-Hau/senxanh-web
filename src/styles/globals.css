@@ -77,6 +77,24 @@ body {
   font-weight: 700;
   width: fit-content;
 }
+
+.btn-primary-header {
+  background: linear-gradient(90deg, #0097b2, #7ed957) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  border-radius: 30px !important;
+  font-weight: 700 !important;
+  width: fit-content;
+}
+
+.btn-primary-header:hover {
+  color: #fff !important;
+  background: linear-gradient(90deg, #008191, #65c3b1) !important;
+}
+
 /* 
 .btn-primary::after {
   content: '';
