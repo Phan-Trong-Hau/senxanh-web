@@ -1,6 +1,7 @@
 'use client';
 
 import Layout from '../common/Layout';
+import AboutUs from './AboutUs';
 import FAQs from './FAQ';
 import HeroBanner from './HeroBanner';
 import SectionCTA from './SectionCTA';
@@ -10,11 +11,13 @@ type Props = {
 };
 
 const Homepage: React.FC<Props> = ({ homepage }) => {
-  const { heroBanner, FAQsSection, CTASection } = homepage?.data || {};
+  const { heroBanner, aboutUs, FAQsSection, CTASection } = homepage?.data || {};
 
   return (
     <Layout>
       <HeroBanner {...heroBanner} />
+
+      <AboutUs {...aboutUs} />
 
       <FAQs {...FAQsSection} />
       <SectionCTA {...CTASection} />

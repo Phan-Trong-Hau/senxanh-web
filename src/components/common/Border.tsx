@@ -10,6 +10,7 @@ type Props = {
   className?: string;
   classNameChildren?: string;
   children: React.ReactNode;
+  [key: string]: any;
 };
 
 const Border = ({

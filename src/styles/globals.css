@@ -114,3 +114,12 @@ body {
 .menu-items > .ant-menu-item-selected::after {
   opacity: 1;
 }
+
+.bg-widget {
+  background: url('https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/background_widget_9a0433c462.png')
+    no-repeat center center/contain;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  height: 380px;
+}
