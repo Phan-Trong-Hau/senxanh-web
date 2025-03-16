@@ -26,7 +26,7 @@ const routes = [
   },
 ];
 
-const CustomMenu = () => {
+const Navbar = () => {
   const [pageActive, setPageActive] = useState<string>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
@@ -128,4 +128,4 @@ const CustomMenu = () => {
   );
 };
 
-export default CustomMenu;
+export default Navbar;

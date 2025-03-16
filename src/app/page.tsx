@@ -5,6 +5,7 @@ const Home = async () => {
   const homepage = await fetchAPI({
     path: '/homepage',
   });
+
   return <Homepage homepage={homepage} />;
 };
 
