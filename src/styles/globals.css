@@ -16,12 +16,47 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
+  padding: 0 6rem !important;
   margin: 0 auto;
 }
 
 .section {
   margin: 5rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 4rem !important;
+    max-width: 1024px;
+  }
+
+  .section {
+    margin: 3rem 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 0 1rem !important;
+    max-width: 640px;
+  }
+  .section {
+    margin: 3rem 0;
+  }
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+  }
 }
 
 .border-primary {

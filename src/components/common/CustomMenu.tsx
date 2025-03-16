@@ -1,9 +1,11 @@
 'use client';
 
-import { Button, Flex, Menu } from 'antd'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { Button, Drawer, Flex, Menu } from 'antd';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+
+import { MenuOutlined } from '@ant-design/icons';
 
 const routes = [
   {
@@ -26,12 +28,10 @@ const routes = [
 
 const CustomMenu = () => {
   const [pageActive, setPageActive] = useState<string>('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    if (window.location) {
-      const path = window.location.pathname;
-      setPageActive(path);
-    }
+    setPageActive(window.location.pathname);
   }, []);
 
   return (
@@ -47,27 +47,83 @@ const CustomMenu = () => {
           }
         />
       </div>
-      <Menu
-        mode="horizontal"
-        selectedKeys={[pageActive]}
-        defaultSelectedKeys={[routes[0].slug]}
-        onSelect={({ key }) => setPageActive(key)}
-        items={routes.map((route) => ({
-          key: route.slug,
-          label: (
-            <Link
-              href={route.slug}
-              className=" font-bold text-base text-primary"
-            >
-              {route.label}
-            </Link>
-          ),
-        }))}
-        className="menu-items flex-1 justify-end !border-b-0"
-      />
-      <Button className="btn-primary-header" onClick={() => {}}>
-        Liên hệ ngay
-      </Button>
+
+      <div className="hidden lg:flex flex-1 justify-end items-center">
+        <Menu
+          mode="horizontal"
+          selectedKeys={[pageActive]}
+          defaultSelectedKeys={[routes[0].slug]}
+          onSelect={({ key }) => setPageActive(key)}
+          items={routes.map((route) => ({
+            key: route.slug,
+            label: (
+              <Link
+                href={route.slug}
+                className="font-bold text-base text-primary"
+              >
+                {route.label}
+              </Link>
+            ),
+          }))}
+          className="menu-items flex-1 justify-end !border-b-0"
+        />
+        <Button className="btn-primary-header" onClick={() => {}}>
+          Liên hệ ngay
+        </Button>
+      </div>
+
+      <div className="self-end lg:hidden">
+        <Button
+          className="btn-primary-header w-full mr-2"
+          onClick={() => {
+            setMobileMenuOpen(false);
+          }}
+        >
+          Liên hệ ngay
+        </Button>
+        <Button
+          icon={<MenuOutlined />}
+          type="text"
+          size="large"
+          onClick={() => setMobileMenuOpen(true)}
+          className="ml-auto"
+        />
+      </div>
+      <Drawer
+        placement="right"
+        open={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        width={280}
+        styles={{
+          body: {
+            padding: 0,
+          },
+        }}
+        rootClassName="lg:hidden"
+      >
+        <div className="p-4">
+          <Menu
+            selectedKeys={[pageActive]}
+            defaultSelectedKeys={[routes[0].slug]}
+            onSelect={({ key }) => {
+              setPageActive(key);
+              setMobileMenuOpen(false);
+            }}
+            className="!border-e-0"
+            items={routes.map((route) => ({
+              key: route.slug,
+              label: (
+                <Link
+                  href={route.slug}
+                  className="font-bold text-base text-primary"
+                >
+                  {route.label}
+                </Link>
+              ),
+            }))}
+          />
+        </div>
+      </Drawer>
     </Flex>
   );
 };
