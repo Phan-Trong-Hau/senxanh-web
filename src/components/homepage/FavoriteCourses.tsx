@@ -1,12 +1,12 @@
-import { Image as Img } from 'antd'
-import Image from 'next/image'
-import Link from 'next/link'
+import { Image as Img } from 'antd';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { Asset, CTA } from '@/utils/type'
+import { Asset, CTA } from '@/utils/type';
 
-import Border from '../common/Border'
-import CustomCarousel from '../common/CustomCarousel'
-import Markdown from '../common/Markdown'
+import Border from '../common/Border';
+import CustomCarousel from '../common/CustomCarousel';
+import Markdown from '../common/Markdown';
 
 type Props = {
   title: string;
@@ -24,18 +24,21 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
   return (
     <div className="container">
       <section className="section">
-        <h2 className="font-bold text-3xl text-center">
+        <h2 className="font-bold text-xl md:text-3xl text-center">
           <span className="text-secondary">{title}</span>
           <br />
           <span className="text-primary inline-block mt-1">
             {highlightTitle}
           </span>
         </h2>
-        <div className="mt-10">
+        <div className="mt-3 md:mt-10">
           <CustomCarousel>
             {courses.map((course, index) => (
-              <div className="!grid grid-cols-2" key={index}>
-                <div className="flex flex-col gap-6">
+              <div
+                className="lg:!grid !flex flex-col-reverse md:grid-cols-2 gap-5 !px-5"
+                key={index}
+              >
+                <div className="flex flex-col gap-2 md:gap-6">
                   <div className="flex justify-center">
                     <Image
                       layout="fixed"
@@ -46,12 +49,20 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
                       alt={course.title}
                       className="object-cover h-[35px]"
                     />
-                    <h3 className="font-bold mt-4 text-3xl text-primary text-center">
+                    <h3 className="font-bold mt-4 text-lg md:text-3xl text-primary text-center">
                       {course.title}
                     </h3>
                   </div>
-                  <div className="text-[15px] text-center bg-favorite-course">
-                    <Markdown content={course.description} className="p-5" />
+                  <div className="relative text-[15px] h-full text-center flex justify-center items-center p-4 text-white overflow-hidden">
+                    <img
+                      src="https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/bg_favorite_courses_61ee86341a.png"
+                      alt={course.title}
+                      className="absolute top-0 right-0 w-full h-full"
+                    />
+                    <Markdown
+                      content={course.description}
+                      className="p-3 md:p-5 pb-6 md:pb-10 z-10 relative md:text-base text-xs"
+                    />
                   </div>
                   {course.cta?.href && (
                     <Link
@@ -62,7 +73,7 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
                     </Link>
                   )}
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center lg:justify-end">
                   <Border className="h-fit" classNameChildren="leading-0">
                     <Img
                       src={course.heroShot.url}
