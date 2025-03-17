@@ -15,8 +15,8 @@ type Props = {
 const Footer = ({ logo, social, contacts, copyright }: Props) => {
   return (
     <div className="container">
-      <div className="flex justify-between gap-20">
-        <div>
+      <div className="flex md:flex-row flex-col justify-between gap-4 md:gap-20">
+        <div className="flex-1">
           <Image
             src={logo?.url}
             alt="logo"
@@ -40,7 +40,7 @@ const Footer = ({ logo, social, contacts, copyright }: Props) => {
                   width={social.icon.width}
                   height={social.icon.height}
                   layout="fixed"
-                  className="w-[70px] object-cover"
+                  className="w-[50px] object-cover"
                 />
               </a>
             ))}
@@ -49,14 +49,14 @@ const Footer = ({ logo, social, contacts, copyright }: Props) => {
             {contacts?.map((address: any) => (
               <p
                 key={address.id}
-                className="text-primary font-bold text-base mb-2"
+                className="text-primary font-bold text-base mb-1 md:mb-2"
               >
                 {address.text}
               </p>
             ))}
           </div>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 max-w-[450px]">
           <Form className="w-full">
             <h3 className="text-primary font-bold text-xl my-6">
               LIÊN HỆ TƯ VẤN
