@@ -6,7 +6,11 @@ const Home = async () => {
     path: '/homepage',
   });
 
-  return <Homepage homepage={homepage} />;
+  const footer = await fetchAPI({
+    path: '/footer',
+  });
+
+  return <Homepage homepage={homepage} footer={footer} />;
 };
 
 export default Home;
