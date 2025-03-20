@@ -1,6 +1,6 @@
 'use client';
 
-import { Form, FormInstance, Input, message } from 'antd'
+import { App, Form, FormInstance, Input } from 'antd'
 import classNames from 'classnames'
 import { useState } from 'react'
 
@@ -23,13 +23,14 @@ const ContactForm = ({
   fullWidthSubmit = false,
 }: ContactFormProps) => {
   const [loading, setLoading] = useState(false);
+  const { message } = App.useApp();
   const handleError = useHandleError();
 
   const handleSubmit = async (values: any) => {
     setLoading(true);
 
     try {
-      const response = await fetchAPI({
+      await fetchAPI({
         path: '/datasets',
         options: {
           method: 'POST',
@@ -49,7 +50,7 @@ const ContactForm = ({
         onFinish(values);
       }
     } catch (error) {
-      handleError(error);
+      handleError('Đã xảy ra lỗi. Vui lòng thử lại sau.');
     } finally {
       setLoading(false);
     }

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import 'antd/dist/reset.css'
 import '../styles/globals.css'
 
+import { App } from 'antd'
 import { Geist, Geist_Mono } from 'next/font/google'
 
 import Layout from '@/components/common/Layout'
@@ -50,7 +52,9 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AntdRegistry>
+          <App>
             <Layout footer={footer}>{children}</Layout>
+          </App>
         </AntdRegistry>
       </body>
     </html>

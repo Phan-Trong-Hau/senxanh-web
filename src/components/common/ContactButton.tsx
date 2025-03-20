@@ -1,9 +1,9 @@
 'use client';
 
-import { Button } from 'antd';
-import { useState } from 'react';
+import { Button } from 'antd'
+import { useState } from 'react'
 
-import ContactModal from './ContactModal';
+import ContactModal from './ContactModal'
 
 type ContactButtonProps = {
   className?: string;

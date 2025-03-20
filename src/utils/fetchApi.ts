@@ -1,4 +1,4 @@
-import qs from 'qs';
+import qs from 'qs'
 
 type Props = {
   path: string;
@@ -48,6 +48,6 @@ export default async function fetchAPI({
 
     return data;
   } catch (error) {
-    console.error(error);
+    throw error;
   }
 }

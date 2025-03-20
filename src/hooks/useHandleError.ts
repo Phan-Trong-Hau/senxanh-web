@@ -1,4 +1,4 @@
-import { message } from 'antd';
+import { App } from 'antd'
 
 type ErrorHandlerOptions = {
   showToast?: boolean;
@@ -16,6 +16,7 @@ export default function useHandleError(options: ErrorHandlerOptions = {}) {
     ...defaultOptions,
     ...options,
   };
+  const { message } = App.useApp();
 
   const handleError = (error: any) => {
     const errorMessage =
