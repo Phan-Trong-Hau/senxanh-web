@@ -3,6 +3,8 @@ import '../styles/globals.css'
 
 import { Geist, Geist_Mono } from 'next/font/google'
 
+import Layout from '@/components/common/Layout'
+import fetchAPI from '@/utils/fetchApi'
 import { AntdRegistry } from '@ant-design/nextjs-registry'
 
 const geistSans = Geist({
@@ -21,11 +23,15 @@ export const metadata: Metadata = {
     'Sen Xanh cung cấp hóa học này tập trung vào việc phát triển các kỹ năng quan trọng như giao tiếp, kỹ nắng sinh tồn, giải quyết vấn đề và ra quyết định, cũng như khả năng tự chủ và làm việc nhóm.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const footer = await fetchAPI({
+    path: '/footer',
+  });
+
   return (
     <html lang="en">
       <head>
@@ -43,7 +49,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AntdRegistry>{children}</AntdRegistry>
+        <AntdRegistry>
+            <Layout footer={footer}>{children}</Layout>
+        </AntdRegistry>
       </body>
     </html>
   );

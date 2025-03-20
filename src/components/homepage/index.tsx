@@ -1,23 +1,21 @@
 'use client';
 
-import Layout from '../common/Layout';
-import AboutUs from './AboutUs';
-import FAQs from './FAQ';
-import FavoriteCourses from './FavoriteCourses';
-import HeroBanner from './HeroBanner';
-import SectionCTA from './SectionCTA';
+import AboutUs from './AboutUs'
+import FAQs from './FAQ'
+import FavoriteCourses from './FavoriteCourses'
+import HeroBanner from './HeroBanner'
+import SectionCTA from './SectionCTA'
 
 type Props = {
   homepage: any;
-  footer: any;
 };
 
-const Homepage: React.FC<Props> = ({ homepage, footer }) => {
+const Homepage: React.FC<Props> = ({ homepage }) => {
   const { heroBanner, aboutUs, favoriteCourses, FAQsSection, CTASection } =
     homepage?.data || {};
 
   return (
-    <Layout footer={footer}>
+    <>
       <HeroBanner {...heroBanner} />
 
       <AboutUs {...aboutUs} />
@@ -27,7 +25,7 @@ const Homepage: React.FC<Props> = ({ homepage, footer }) => {
       <FAQs {...FAQsSection} />
 
       <SectionCTA {...CTASection} />
-    </Layout>
+    </>
   );
 };
 

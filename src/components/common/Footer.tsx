@@ -1,9 +1,11 @@
 'use client';
 
-import { Divider, Form, Input } from 'antd';
-import Image from 'next/image';
+import { Divider, Form } from 'antd'
+import Image from 'next/image'
 
-import { Asset } from '@/utils/type';
+import { Asset } from '@/utils/type'
+
+import ContactForm from './ContactForm'
 
 type Props = {
   logo: Asset;
@@ -13,6 +15,8 @@ type Props = {
 };
 
 const Footer = ({ logo, social, contacts, copyright }: Props) => {
+  const [form] = Form.useForm();
+
   return (
     <div className="container">
       <div className="flex md:flex-row flex-col justify-between gap-4 md:gap-20">
@@ -57,28 +61,10 @@ const Footer = ({ logo, social, contacts, copyright }: Props) => {
           </div>
         </div>
         <div className="flex-1 max-w-[450px]">
-          <Form className="w-full">
-            <h3 className="text-primary font-bold text-xl my-6">
-              LIÊN HỆ TƯ VẤN
-            </h3>
-            <Form.Item name="name" className="!mb-3">
-              <Input type="text" placeholder="Họ và tên" />
-            </Form.Item>
-            <Form.Item name="email" className="!mb-3">
-              <Input type="email" placeholder="Email" />
-            </Form.Item>
-            <Form.Item name="phone" className="!mb-3">
-              <Input type="phone" placeholder="Số điện thoại" />
-            </Form.Item>
-            <Form.Item name="content" className="!mb-3">
-              <Input.TextArea placeholder="Nội dung cần tư vấn" />
-            </Form.Item>
-            <Form.Item>
-              <button type="submit" className="btn btn-primary">
-                Gửi yêu cầu
-              </button>
-            </Form.Item>
-          </Form>
+          <h3 className="text-primary font-bold text-xl my-6">
+            LIÊN HỆ TƯ VẤN
+          </h3>
+          <ContactForm form={form} />
         </div>
       </div>
       <Divider />
