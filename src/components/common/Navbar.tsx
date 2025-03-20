@@ -1,11 +1,13 @@
 'use client';
 
-import { Button, Drawer, Flex, Menu } from 'antd';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { Button, Drawer, Flex, Menu } from 'antd'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
-import { MenuOutlined } from '@ant-design/icons';
+import { MenuOutlined } from '@ant-design/icons'
+
+import ContactButton from './ContactButton'
 
 const routes = [
   {
@@ -67,20 +69,11 @@ const Navbar = () => {
           }))}
           className="menu-items flex-1 justify-end !border-b-0"
         />
-        <Button className="btn-primary-header" onClick={() => {}}>
-          Liên hệ ngay
-        </Button>
+        <ContactButton className="btn-primary-header" />
       </div>
 
       <div className="self-end lg:hidden">
-        <Button
-          className="btn-primary-header w-full mr-2"
-          onClick={() => {
-            setMobileMenuOpen(false);
-          }}
-        >
-          Liên hệ ngay
-        </Button>
+        <ContactButton className="btn-primary-header w-full mr-2" />
         <Button
           icon={<MenuOutlined />}
           type="text"

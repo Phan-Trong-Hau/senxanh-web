@@ -1,6 +1,5 @@
 'use client';
 
-import Layout from '../common/Layout'
 import AboutUs from './AboutUs'
 import FAQs from './FAQ'
 import FavoriteCourses from './FavoriteCourses'
@@ -16,7 +15,7 @@ const Homepage: React.FC<Props> = ({ homepage }) => {
     homepage?.data || {};
 
   return (
-    <Layout>
+    <>
       <HeroBanner {...heroBanner} />
 
       <AboutUs {...aboutUs} />
@@ -26,7 +25,7 @@ const Homepage: React.FC<Props> = ({ homepage }) => {
       <FAQs {...FAQsSection} />
 
       <SectionCTA {...CTASection} />
-    </Layout>
+    </>
   );
 };
 
