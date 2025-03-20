@@ -36,6 +36,7 @@ const ContactForm = ({
           method: 'POST',
           body: JSON.stringify({ data: values }),
         },
+        isAuthenticated: false,
       });
 
       message.success(
