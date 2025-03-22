@@ -36,7 +36,7 @@ const ContactModal = ({
       centered
       maskClosable={true}
     >
-      <ContactForm form={form} onFinish={handleSubmit} fullWidthSubmit={true} />
+      <ContactForm form={form} onFinish={handleSubmit} />
     </Modal>
   );
 };
