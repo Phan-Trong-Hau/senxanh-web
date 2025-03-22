@@ -1,15 +1,16 @@
-import { Asset } from "@/utils/type";
 import Image from "next/image";
+
+import { Asset } from "@/utils/type";
 
 type Props = {
   title: string;
   logo: Asset;
-  partners: [
-    {
-      icon: Asset;
-      href: string;
-    }
-  ];
+  partners: Partner[];
+};
+
+type Partner = {
+  icon: Asset;
+  href: string;
 };
 
 const Partner: React.FC<Props> = ({ title, logo, partners }) => {

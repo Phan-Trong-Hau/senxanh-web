@@ -1,7 +1,8 @@
 "use client";
 
-import { Asset } from "@/utils/type";
 import Image from "next/image";
+
+import { Asset } from "@/utils/type";
 
 type Props = {
   background: Asset;
@@ -12,7 +13,7 @@ type Props = {
 
 const HeroBanner: React.FC<Props> = ({ background, backgroundInMobile, logo, description }) => {
   return (
-    <div className="relative">
+    <>
       <Image
         loader={({ src }) => src}
         src={background.url}
@@ -35,9 +36,9 @@ const HeroBanner: React.FC<Props> = ({ background, backgroundInMobile, logo, des
         objectPosition="top"
         className="w-screen md:hidden"
       />
-      <div className="text-center absolute top-1/2 -translate-y-1/2 left-10">
-        <section className="section justify-end">
-          {/* <Image
+      <div className="container text-center">
+        <section className="section flex flex-col items-center justify-center text-primary gap-7.5">
+          <Image
             loader={({ src }) => src}
             src={logo.url}
             width={logo.width}
@@ -46,14 +47,11 @@ const HeroBanner: React.FC<Props> = ({ background, backgroundInMobile, logo, des
             layout="fixed"
             objectFit="contain"
             className="lg:w-[400px] md:w-[320px] w-[240px]"
-          /> */}
-
-          <p className="text-xl md:text-2xl lg:text-3xl whitespace-pre-line text-white text-left leading-relaxed">
-            {description}
-          </p>
+          />
+          <p className="max-w-[980px] text-sm md:text-base">{description}</p>
         </section>
       </div>
-    </div>
+    </>
   );
 };
 
