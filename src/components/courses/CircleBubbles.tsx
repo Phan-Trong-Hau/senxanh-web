@@ -92,7 +92,7 @@ export default function CircleBubbles({ items }: Props) {
             >
               <div className="flex flex-col gap-1 items-center">
                 <Border
-                  className="h-fit rounded-full"
+                  className="h-fit"
                   classNameChildren="leading-0"
                   radius={999}
                 >
