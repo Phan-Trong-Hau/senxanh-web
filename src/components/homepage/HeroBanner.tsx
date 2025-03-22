@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
+import Image from 'next/image'
 
-import { Asset } from '@/utils/type';
+import { Asset } from '@/utils/type'
 
 type Props = {
   background: Asset;
@@ -45,10 +45,10 @@ export default function HeroBanner({
             className="lg:w-[400px] md:w-[320px] w-[240px]"
           />
 
-          <h1 className="text-xl md:text-2xl lg:text-4xl font-bold mt-6 md:mt-10 mb-4 md:mb-8">
+          <h1 className="text-xl md:text-2xl lg:text-4xl !font-bold !mt-6 md:!mt-10 !mb-4 md:!mb-8">
             <span>{title}</span>
             <br />
-            <span className="uppercase inline-block md:mt-1 lg:mt-2">
+            <span className="uppercase inline-block md:!mt-1 lg:!mt-2">
               {highlightTitle}
             </span>
           </h1>

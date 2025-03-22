@@ -34,7 +34,7 @@ const SectionCTA = ({ title, cta }: Props) => {
             </div>
             <Button
               className={classNames(
-                'text-secondary [&_span]:font-bold mt-3 md:mt-6 bg-white'
+                'text-secondary [&_span]:font-bold !mt-3 md:!mt-4 bg-white'
               )}
               onClick={handleOpenModal}
             >

@@ -40,7 +40,7 @@ const Footer = ({ logo, social, contacts, copyright }: Props) => {
               >
                 <Image
                   src={social.icon.url}
-                  alt={social.icon.alternativeText}
+                  alt="social"
                   width={social.icon.width}
                   height={social.icon.height}
                   layout="fixed"
@@ -61,9 +61,9 @@ const Footer = ({ logo, social, contacts, copyright }: Props) => {
           </div>
         </div>
         <div className="flex-1 max-w-[450px]">
-          <h3 className="text-primary font-bold text-xl my-6">
+          <div className="text-primary font-bold text-xl my-6">
             LIÊN HỆ TƯ VẤN
-          </h3>
+          </div>
           <ContactForm form={form} />
         </div>
       </div>
