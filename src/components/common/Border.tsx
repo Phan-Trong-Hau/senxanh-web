@@ -36,7 +36,9 @@ const Border = ({
       }
       {...props}
     >
-      <div className={classNameChildren}>{children}</div>
+      <div className={classNames('leading-0', classNameChildren)}>
+        {children}
+      </div>
     </div>
   );
 };

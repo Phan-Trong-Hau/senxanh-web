@@ -1,12 +1,12 @@
-import { Image as Img } from 'antd';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Image as Img } from 'antd'
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { Asset, CTA } from '@/utils/type';
+import { Asset, CTA } from '@/utils/type'
 
-import Border from '../common/Border';
-import CustomCarousel from '../common/CustomCarousel';
-import Markdown from '../common/Markdown';
+import Border from '../common/Border'
+import CustomCarousel from '../common/CustomCarousel'
+import Markdown from '../common/Markdown'
 
 type Props = {
   title: string;
@@ -74,7 +74,7 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
                   )}
                 </div>
                 <div className="flex justify-center lg:justify-end">
-                  <Border className="h-fit" classNameChildren="leading-0">
+                  <Border className="h-fit">
                     <Img
                       src={course.heroShot.url}
                       alt={course.title}

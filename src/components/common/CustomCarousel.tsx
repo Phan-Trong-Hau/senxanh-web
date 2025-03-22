@@ -1,7 +1,7 @@
 'use client';
 
-import { Carousel, CarouselProps } from 'antd';
-import classNames from 'classnames';
+import { Carousel, CarouselProps } from 'antd'
+import classNames from 'classnames'
 
 const CustomCarousel = ({ children, ...props }: CarouselProps) => {
   return (

@@ -91,11 +91,7 @@ export default function CircleBubbles({ items }: Props) {
               onMouseEnter={() => setActiveIndex(index)}
             >
               <div className="flex flex-col gap-1 items-center">
-                <Border
-                  className="h-fit"
-                  classNameChildren="leading-0"
-                  radius={999}
-                >
+                <Border className="h-fit" radius={999}>
                   <Image
                     loader={({ src }) => src}
                     src={item.image.url}

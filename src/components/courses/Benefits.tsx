@@ -18,7 +18,7 @@ type Props = {
 const Benefits: React.FC<Props> = ({ title, highlightTitle, bubbles }) => {
   return (
     <div className="container overflow-hidden">
-      <section className="section">
+      <section className="section !mt-0">
         <h2 className="text-4xl !font-bold text-center">
           <span className="text-primary">{title}</span>
           <br />
@@ -35,11 +35,7 @@ const Benefits: React.FC<Props> = ({ title, highlightTitle, bubbles }) => {
                 transform: `translateX(calc(50% +  ${index * 80}px - 300px))`,
               }}
             >
-              <Border
-                className="h-fit w-fit shrink-0"
-                classNameChildren="leading-0"
-                radius={999}
-              >
+              <Border className="h-fit w-fit shrink-0" radius={999}>
                 <Image
                   src={bubble.image.url}
                   alt={bubble.caption}
