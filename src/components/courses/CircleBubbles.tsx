@@ -74,7 +74,7 @@ export default function CircleBubbles({ items }: Props) {
         className={classNames(
           isMobile
             ? 'flex flex-wrap justify-center gap-6'
-            : 'w-full h-full relative'
+            : 'w-full h-full relative mt-[100px]'
         )}
       >
         {items.map((item, index) => {
