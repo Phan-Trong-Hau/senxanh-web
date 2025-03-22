@@ -55,11 +55,17 @@ export default function CircleBubbles({ items }: Props) {
     <div
       className={classNames(
         'relative w-full mx-auto max-w-4xl mt-12',
-        isMobile ? 'h-auto' : 'h-[330px]'
+        isMobile ? 'flex flex-col-reverse gap-6' : 'h-[330px]'
       )}
     >
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center p-6 pt-0 text-center max-w-[370px]">
-        <p className="text-sm md:text-base text-primary">
+      <div
+        className={classNames(
+          'flex items-center justify-center text-center px-4',
+          !isMobile &&
+            'absolute left-1/2 top-1/2 -translate-x-1/2 p-6 pt-0 -translate-y-1/2 z-10 max-w-[370px]'
+        )}
+      >
+        <p className="text-sm md:text-base text-primary !mb-0">
           {items[activeIndex].description}
         </p>
       </div>
@@ -67,8 +73,8 @@ export default function CircleBubbles({ items }: Props) {
       <div
         className={classNames(
           isMobile
-            ? 'flex flex-wrap justify-center gap-4 mt-[250px]'
-            : 'w-full h-full relative'
+            ? 'flex flex-wrap justify-center gap-6'
+            : 'w-full h-full relative mt-[100px]'
         )}
       >
         {items.map((item, index) => {
