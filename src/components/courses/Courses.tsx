@@ -1,3 +1,5 @@
+'use client';
+
 import { Asset } from '@/utils/type'
 
 import Article from '../common/Article'

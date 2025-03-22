@@ -1,4 +1,6 @@
-import { Image } from 'antd'
+'use client';
+
+import { App, Image } from 'antd'
 import classNames from 'classnames'
 import { useRouter } from 'next/navigation'
 
@@ -22,13 +24,21 @@ const Article = ({
   className,
 }: Article) => {
   const router = useRouter();
+  const { message } = App.useApp();
+
+  const handleClick = () => {
+    // router.push(link);
+    message.info(
+      'Khóa học sẽ sớm ra mắt, vui lòng đợi trong thời gian sắp tới.'
+    );
+  };
 
   return (
     <div className={classNames('h-[400px]', className)}>
       <Border
         className="flex flex-col gap-4 h-full"
         classNameChildren="h-full flex flex-col"
-        radius={13}
+        radius={18}
       >
         <div className="p-2 pb-0">
           <Border radius={12}>
@@ -46,7 +56,7 @@ const Article = ({
         </div>
         <div className="flex flex-col gap-2 p-4 pb-6 flex-1">
           <div
-            onClick={() => router.push(link)}
+            onClick={handleClick}
             className="font-bold text-lg text-primary cursor-pointer line-clamp-2"
           >
             {title}
@@ -54,7 +64,7 @@ const Article = ({
           <p className="text-base text-gray-900 line-clamp-3">{description}</p>
           <div
             className="text-center text-secondary cursor-pointer font-bold mt-auto"
-            onClick={() => router.push(link)}
+            onClick={handleClick}
           >
             Tìm hiểu thêm
           </div>

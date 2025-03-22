@@ -1,3 +1,5 @@
+'use client';
+
 import { Image as Img } from 'antd'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -24,7 +26,7 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
   return (
     <div className="container">
       <section className="section">
-        <h2 className="font-bold text-xl md:text-3xl text-center">
+        <h2 className="!font-bold text-xl md:text-3xl text-center">
           <span className="text-secondary">{title}</span>
           <br />
           <span className="text-primary inline-block mt-1">

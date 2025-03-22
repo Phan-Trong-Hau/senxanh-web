@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image'
 
 import { Asset } from '@/utils/type'
@@ -32,7 +34,7 @@ const Benefits: React.FC<Props> = ({ title, highlightTitle, bubbles }) => {
               key={bubble.caption}
               className="flex gap-4 items-center"
               style={{
-                transform: `translateX(calc(50% +  ${index * 80}px - 300px))`,
+                transform: `translateX(calc(50% +  ${index * 80}px - 350px))`,
               }}
             >
               <Border className="h-fit w-fit shrink-0" radius={999}>
@@ -44,7 +46,7 @@ const Benefits: React.FC<Props> = ({ title, highlightTitle, bubbles }) => {
                   className="rounded-full w-16 h-16"
                 />
               </Border>
-              <p className="text-center font-bold text-sm text-secondary !mb-0">
+              <p className="text-center font-semibold text-lg text-secondary !mb-0">
                 {bubble.caption}
               </p>
             </div>
