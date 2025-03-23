@@ -34,6 +34,10 @@ export default async function RootLayout({
     path: '/footer',
   })
 
+  const contact = await fetchAPI({
+    path: '/contacts',
+  })
+
   return (
     <html lang='en'>
       <head>
@@ -47,7 +51,9 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <AntdRegistry>
           <App>
-            <Layout footer={footer}>{children}</Layout>
+            <Layout footer={footer} contact={contact}>
+              {children}
+            </Layout>
           </App>
         </AntdRegistry>
       </body>
