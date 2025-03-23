@@ -5,7 +5,7 @@ import classNames from 'classnames'
 
 import { Asset } from '@/utils/type'
 
-import Border from './Border'
+import Border from '../Custom/Border'
 
 type SingleArticle = {
   thumbnail: Asset

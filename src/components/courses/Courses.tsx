@@ -3,7 +3,7 @@
 import { Asset } from '@/utils/type'
 
 import Article from '../common/Article'
-import CustomCarousel from '../common/CustomCarousel'
+import Carousel from '../common/Custom/Carousel'
 
 type Course = {
   title: string
@@ -23,7 +23,7 @@ const Courses = ({ title, courses }: Props) => {
       <section className='section'>
         <h2 className='text-4xl text-primary !font-bold text-center'>{title}</h2>
         <div className='mt-8'>
-          <CustomCarousel slidesToShow={3}>
+          <Carousel slidesToShow={3}>
             {courses.map(course => (
               <Article
                 key={course.slug}
@@ -32,7 +32,7 @@ const Courses = ({ title, courses }: Props) => {
                 className='px-2'
               />
             ))}
-          </CustomCarousel>
+          </Carousel>
         </div>
       </section>
     </div>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import { Asset } from '@/utils/type'
 
-import Border from '../common/Border'
+import Border from '../common/Custom/Border'
 
 type Bubble = {
   caption: string
@@ -35,10 +35,10 @@ const Benefits: React.FC<Props> = ({ title, highlightTitle, bubbles }) => {
               className='flex gap-4 items-center'
               style={{
                 transform: `translateX(calc(50% +  ${index * 80}px - 350px))`,
-              }}
-            >
+              }}>
               <Border className='h-fit w-fit shrink-0' radius={999}>
                 <Image
+                  loader={({ src }) => src}
                   src={bubble.image.url}
                   alt={bubble.caption}
                   width={64}

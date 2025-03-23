@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 
 import { Asset } from '@/utils/type'
 
-import Border from './Border'
+import Border from '../Custom/Border'
 
 type Article = {
   title: string
@@ -30,8 +30,7 @@ const Article = ({ title, description, thumbnail, link, className }: Article) =>
       <Border
         className='flex flex-col gap-4 h-full'
         classNameChildren='h-full flex flex-col'
-        radius={18}
-      >
+        radius={18}>
         <div className='p-2 pb-0'>
           <Border radius={12}>
             <Image
@@ -49,15 +48,13 @@ const Article = ({ title, description, thumbnail, link, className }: Article) =>
         <div className='flex flex-col gap-2 p-4 pb-6 flex-1'>
           <div
             onClick={handleClick}
-            className='font-bold text-lg text-primary cursor-pointer line-clamp-2'
-          >
+            className='font-bold text-lg text-primary cursor-pointer line-clamp-2'>
             {title}
           </div>
           <p className='text-base text-gray-900 line-clamp-3'>{description}</p>
           <div
             className='text-center text-secondary cursor-pointer font-bold mt-auto'
-            onClick={handleClick}
-          >
+            onClick={handleClick}>
             Tìm hiểu thêm
           </div>
         </div>

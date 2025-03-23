@@ -2,7 +2,7 @@ import { Image } from 'antd'
 
 import { Asset } from '@/utils/type'
 
-import Border from '../common/Border'
+import Border from '../common/Custom/Border'
 
 type Props = {
   title: string

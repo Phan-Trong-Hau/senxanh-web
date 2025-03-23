@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 import { Asset } from '@/utils/type'
 
-import ContactForm from './ContactForm'
+import ContactForm from '../ContactForm'
 
 type Social = {
   id: string
@@ -47,8 +47,7 @@ const Footer = ({ logo, social, contacts, copyright }: Props) => {
                 href={social.href}
                 target='_blank'
                 rel='noopener noreferrer'
-                key={social.id}
-              >
+                key={social.id}>
                 <Image
                   src={social.icon.url}
                   alt='social'
@@ -64,8 +63,7 @@ const Footer = ({ logo, social, contacts, copyright }: Props) => {
             {contacts?.map((contact: Contact) => (
               <p
                 key={contact.id}
-                className='text-primary font-bold text-base mb-1 md:mb-2'
-              >
+                className='text-primary font-bold text-base mb-1 md:mb-2'>
                 {contact.text}
               </p>
             ))}

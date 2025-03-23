@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 
 import { MenuOutlined } from '@ant-design/icons'
 
-import ContactButton from './ContactButton'
+import ContactButton from '../ContactForm/Button'
 
 const routes = [
   {
@@ -89,8 +89,7 @@ const Navbar = () => {
             padding: 0,
           },
         }}
-        rootClassName='lg:hidden'
-      >
+        rootClassName='lg:hidden'>
         <div className='p-4'>
           <Menu
             selectedKeys={[pageActive]}

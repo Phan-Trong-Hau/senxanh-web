@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 import { CTA } from '@/utils/type'
 
-import ContactModal from '../common/ContactModal'
+import ContactModal from '../common/ContactForm/Modal'
 
 type Props = {
   title: string
@@ -36,8 +36,7 @@ const SectionCTA = ({ title, cta }: Props) => {
               className={classNames(
                 'text-secondary [&_span]:font-bold !mt-3 md:!mt-4 bg-white',
               )}
-              onClick={handleOpenModal}
-            >
+              onClick={handleOpenModal}>
               {cta?.text || 'Liên hệ ngay'}
             </Button>
           </div>

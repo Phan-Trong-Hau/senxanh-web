@@ -6,9 +6,9 @@ import Link from 'next/link'
 
 import { Asset, CTA } from '@/utils/type'
 
-import Border from '../common/Border'
-import CustomCarousel from '../common/CustomCarousel'
-import Markdown from '../common/Markdown'
+import Border from '../common/Custom/Border'
+import Carousel from '../common/Custom/Carousel'
+import Markdown from '../common/Custom/Markdown'
 
 type Props = {
   title: string
@@ -32,12 +32,11 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
           <span className='text-primary inline-block mt-1'>{highlightTitle}</span>
         </h2>
         <div className='mt-3 md:mt-10'>
-          <CustomCarousel>
+          <Carousel>
             {courses.map((course, index) => (
               <div
                 className='lg:!grid !flex flex-col-reverse md:grid-cols-2 gap-5 !px-5'
-                key={index}
-              >
+                key={index}>
                 <div className='flex flex-col gap-2 md:gap-6'>
                   <div className='flex justify-center'>
                     <Image
@@ -84,7 +83,7 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
                 </div>
               </div>
             ))}
-          </CustomCarousel>
+          </Carousel>
         </div>
       </section>
     </div>

@@ -3,7 +3,7 @@
 import { Button } from 'antd'
 import { useState } from 'react'
 
-import ContactModal from './ContactModal'
+import ContactModal from './Modal'
 
 type ContactButtonProps = {
   className?: string

@@ -5,8 +5,8 @@ import { useState } from 'react'
 
 import { Asset } from '@/utils/type'
 
-import Border from '../common/Border'
-import Markdown from '../common/Markdown'
+import Border from '../common/Custom/Border'
+import Markdown from '../common/Custom/Markdown'
 
 type Props = {
   title: string
@@ -34,8 +34,7 @@ const AboutUs = ({ title, widgets }: Props) => {
               <Border
                 key={index}
                 className='cursor-pointer h-fit'
-                onClick={() => setWidgetActive(widget)}
-              >
+                onClick={() => setWidgetActive(widget)}>
                 <Image
                   loader={({ src }) => src}
                   src={widget.thumbnail.url}

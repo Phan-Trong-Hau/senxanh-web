@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 import { Asset } from '@/utils/type'
 
-import Border from '../common/Border'
+import Border from '../common/Custom/Border'
 
 type BubbleItem = {
   name: string
@@ -56,8 +56,7 @@ export default function CircleBubbles({ items }: Props) {
       className={classNames(
         'relative w-full mx-auto max-w-4xl mt-12',
         isMobile ? 'h-auto' : 'h-[330px]',
-      )}
-    >
+      )}>
       <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center p-6 pt-0 text-center max-w-[370px]'>
         <p className='text-sm md:text-base text-primary'>
           {items[activeIndex].description}
@@ -69,8 +68,7 @@ export default function CircleBubbles({ items }: Props) {
           isMobile
             ? 'flex flex-wrap justify-center gap-4 mt-[250px]'
             : 'w-full h-full relative',
-        )}
-      >
+        )}>
         {items.map((item, index) => {
           const positionStyles = !isMobile ? calculatePosition(index, items.length) : {}
 
@@ -84,8 +82,7 @@ export default function CircleBubbles({ items }: Props) {
               )}
               style={positionStyles as any}
               onClick={() => setActiveIndex(index)}
-              onMouseEnter={() => setActiveIndex(index)}
-            >
+              onMouseEnter={() => setActiveIndex(index)}>
               <div className='flex flex-col gap-1 items-center'>
                 <Border className='h-fit' radius={999}>
                   <Image

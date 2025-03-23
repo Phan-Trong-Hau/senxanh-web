@@ -1,6 +1,6 @@
 'use client'
 
-import Border from '../common/Border'
+import Border from '../common/Custom/Border'
 
 type Props = {
   title: string
@@ -19,8 +19,7 @@ const FAQs = ({ title, faqs }: Props) => {
           <Border
             key={index}
             className='mt-4 max-w-[1024px] mx-auto'
-            classNameChildren='px-10 py-4'
-          >
+            classNameChildren='px-10 py-4'>
             <div className='font-semibold text-lg'>{faq.title}</div>
             <p className='text-sm mt-2'>{faq.description}</p>
           </Border>

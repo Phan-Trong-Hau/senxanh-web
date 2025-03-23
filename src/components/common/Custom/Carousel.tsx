@@ -12,8 +12,7 @@ const CustomCarousel = ({ children, ...props }: CarouselProps) => {
         className: '!-bottom-8 [&_li]:bg-[#1c74bc] [&_.slick-active]:after:!bg-[#1c74bc]',
       }}
       rootClassName={classNames('!pb-8', props.rootClassName)}
-      {...props}
-    >
+      {...props}>
       {children}
     </Carousel>
   )

@@ -2,7 +2,7 @@
 
 import { Form, Modal } from 'antd'
 
-import ContactForm from './ContactForm'
+import ContactForm from './'
 
 type ContactModalProps = {
   isOpen: boolean
@@ -34,8 +34,7 @@ const ContactModal = ({
       footer={null}
       width={500}
       centered
-      maskClosable={true}
-    >
+      maskClosable={true}>
       <ContactForm form={form} onFinish={handleSubmit} fullWidthSubmit={true} />
     </Modal>
   )
