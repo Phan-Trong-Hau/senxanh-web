@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import AboutUs from './AboutUs'
 import FAQs from './FAQ'
@@ -7,12 +7,12 @@ import HeroBanner from './HeroBanner'
 import SectionCTA from './SectionCTA'
 
 type Props = {
-  homepage: any;
-};
+  homepage: any
+}
 
 const Homepage: React.FC<Props> = ({ homepage }) => {
   const { heroBanner, aboutUs, favoriteCourses, FAQsSection, CTASection } =
-    homepage?.data || {};
+    homepage?.data || {}
 
   return (
     <>
@@ -26,7 +26,7 @@ const Homepage: React.FC<Props> = ({ homepage }) => {
 
       <SectionCTA {...CTASection} />
     </>
-  );
-};
+  )
+}
 
-export default Homepage;
+export default Homepage

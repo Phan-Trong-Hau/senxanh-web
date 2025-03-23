@@ -1,12 +1,12 @@
 import qs from 'qs'
 
 type Props = {
-  path: string;
-  urlParamsObject?: Record<string, any>;
-  options?: RequestInit;
-  isAuthenticated?: boolean;
-  isPopulate?: boolean;
-};
+  path: string
+  urlParamsObject?: Record<string, any>
+  options?: RequestInit
+  isAuthenticated?: boolean
+  isPopulate?: boolean
+}
 
 export default async function fetchAPI({
   path,
@@ -21,33 +21,31 @@ export default async function fetchAPI({
       next: { revalidate: 60 },
       headers: {
         'Content-Type': 'application/json',
-        Authorization: isAuthenticated
-          ? `Bearer ${process.env.STRAPI_API_TOKEN}`
-          : null,
+        Authorization: isAuthenticated ? `Bearer ${process.env.STRAPI_API_TOKEN}` : null,
       },
       ...options,
-    } as RequestInit;
+    } as RequestInit
 
-    const populateRequest = isPopulate ? { pLevel: '5' } : {};
+    const populateRequest = isPopulate ? { pLevel: '5' } : {}
 
     const mergedParams = {
       ...urlParamsObject,
       ...populateRequest,
-    };
+    }
 
     // Build request URL
-    const queryString = qs.stringify(mergedParams);
+    const queryString = qs.stringify(mergedParams)
 
     const requestUrl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api${path}${
       queryString ? `?${queryString}` : ''
-    }`;
+    }`
 
     // Trigger API call
-    const response = await fetch(requestUrl, mergedOptions);
-    const data = await response.json();
+    const response = await fetch(requestUrl, mergedOptions)
+    const data = await response.json()
 
-    return data;
+    return data
   } catch (error) {
-    throw error;
+    throw error
   }
 }

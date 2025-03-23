@@ -1,13 +1,13 @@
-'use client';
+'use client'
 
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
 type Props = {
-  content: string;
-  className?: string;
-  [key: string]: any;
-};
+  content: string
+  className?: string
+  [key: string]: any
+}
 
 const Markdown = ({ content, className, ...props }: Props) => {
   return (
@@ -16,7 +16,7 @@ const Markdown = ({ content, className, ...props }: Props) => {
         {content}
       </ReactMarkdown>
     </div>
-  );
-};
+  )
+}
 
-export default Markdown;
+export default Markdown

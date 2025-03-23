@@ -1,19 +1,19 @@
-'use client';
+'use client'
 
 import { Asset } from '@/utils/type'
 
 import CircleBubbles from './CircleBubbles'
 
 type Props = {
-  title: string;
-  highlightTitle: string;
-  description: string;
+  title: string
+  highlightTitle: string
+  description: string
   infoBubbles: {
-    name: string;
-    description: string;
-    image: Asset;
-  }[];
-};
+    name: string
+    description: string
+    image: Asset
+  }[]
+}
 
 export default function HeroBanner({
   title,
@@ -23,21 +23,21 @@ export default function HeroBanner({
 }: Props) {
   return (
     <>
-      <div className="container text-center">
-        <section className="section !mt-10 flex flex-col items-center justify-center">
-          <h1 className="text-xl md:text-2xl lg:text-4xl text-primary !font-bold mt-6 md:mt-10 mb-4 md:mb-8">
+      <div className='container text-center'>
+        <section className='section !mt-10 flex flex-col items-center justify-center'>
+          <h1 className='text-xl md:text-2xl lg:text-4xl text-primary !font-bold mt-6 md:mt-10 mb-4 md:mb-8'>
             <span>{title}</span>
             <br />
-            <span className="uppercase inline-block md:mt-1 lg:mt-2 text-secondary">
+            <span className='uppercase inline-block md:mt-1 lg:mt-2 text-secondary'>
               {highlightTitle}
             </span>
           </h1>
-          <p className="max-w-[700px] text-sm md:text-base">{description}</p>
+          <p className='max-w-[700px] text-sm md:text-base'>{description}</p>
         </section>
-        <section className="section">
+        <section className='section'>
           <CircleBubbles items={infoBubbles} />
         </section>
       </div>
     </>
-  );
+  )
 }

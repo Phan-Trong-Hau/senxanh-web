@@ -1,18 +1,18 @@
-import { Asset } from '@/utils/type';
+import { Asset } from '@/utils/type'
 
-import CustomCarousel from '../common/CustomCarousel';
-import SingleArticle from '../common/SingleArticle';
+import CustomCarousel from '../common/CustomCarousel'
+import SingleArticle from '../common/SingleArticle'
 
 type Props = {
-  title: string;
-  testimonials: Testimonial[];
-};
+  title: string
+  testimonials: Testimonial[]
+}
 
 type Testimonial = {
-  thumbnail: Asset;
-  testifier: string;
-  content: string;
-};
+  thumbnail: Asset
+  testifier: string
+  content: string
+}
 
 const Testimonial: React.FC<Props> = ({ title, testimonials }) => {
   const settings = {
@@ -37,15 +37,13 @@ const Testimonial: React.FC<Props> = ({ title, testimonials }) => {
         },
       },
     ],
-  };
+  }
 
   return (
-    <div className="container text-primary">
-      <section className="section">
-        <h2 className="!font-bold text-2xl md:text-4xl text-center">
-          {title ?? 'Đánh giá khách hàng'}
-        </h2>
-        <div className="mt-8">
+    <div className='container text-primary'>
+      <section className='section'>
+        <h2 className='!font-bold text-2xl md:text-4xl text-center'>{title}</h2>
+        <div className='mt-8'>
           <CustomCarousel {...settings}>
             {testimonials.map((testimonial, index) => (
               <SingleArticle
@@ -53,14 +51,14 @@ const Testimonial: React.FC<Props> = ({ title, testimonials }) => {
                 testifier={testimonial.testifier}
                 content={testimonial.content}
                 thumbnail={testimonial.thumbnail}
-                className="px-2"
+                className='px-2'
               />
             ))}
           </CustomCarousel>
         </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default Testimonial;
+export default Testimonial

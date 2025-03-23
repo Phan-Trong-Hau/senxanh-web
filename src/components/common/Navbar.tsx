@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { Button, Drawer, Flex, Menu } from 'antd'
 import Image from 'next/image'
@@ -26,22 +26,22 @@ const routes = [
     slug: '/knowledge',
     label: 'Kiến thức xanh',
   },
-];
+]
 
 const Navbar = () => {
-  const [pageActive, setPageActive] = useState<string>('');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [pageActive, setPageActive] = useState<string>('')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false)
 
   useEffect(() => {
-    setPageActive(window.location.pathname);
-  }, []);
+    setPageActive(window.location.pathname)
+  }, [])
 
   return (
-    <Flex justify="space-between" align="center" className="container">
-      <div className="-mt-2">
+    <Flex justify='space-between' align='center' className='container'>
+      <div className='-mt-2'>
         <Image
           loader={({ src }) => src}
-          alt="Sen Xanh logo"
+          alt='Sen Xanh logo'
           width={150}
           height={31}
           src={
@@ -50,40 +50,37 @@ const Navbar = () => {
         />
       </div>
 
-      <div className="hidden lg:flex flex-1 justify-end items-center">
+      <div className='hidden lg:flex flex-1 justify-end items-center'>
         <Menu
-          mode="horizontal"
+          mode='horizontal'
           selectedKeys={[pageActive]}
           defaultSelectedKeys={[routes[0].slug]}
           onSelect={({ key }) => setPageActive(key)}
-          items={routes.map((route) => ({
+          items={routes.map(route => ({
             key: route.slug,
             label: (
-              <Link
-                href={route.slug}
-                className="font-bold text-base text-primary"
-              >
+              <Link href={route.slug} className='font-bold text-base text-primary'>
                 {route.label}
               </Link>
             ),
           }))}
-          className="menu-items flex-1 justify-end !border-b-0"
+          className='menu-items flex-1 justify-end !border-b-0'
         />
-        <ContactButton className="btn-primary-header" />
+        <ContactButton className='btn-primary-header' />
       </div>
 
-      <div className="self-end lg:hidden">
-        <ContactButton className="btn-primary-header w-full mr-2" />
+      <div className='self-end lg:hidden'>
+        <ContactButton className='btn-primary-header w-full mr-2' />
         <Button
           icon={<MenuOutlined />}
-          type="text"
-          size="large"
+          type='text'
+          size='large'
           onClick={() => setMobileMenuOpen(true)}
-          className="ml-auto"
+          className='ml-auto'
         />
       </div>
       <Drawer
-        placement="right"
+        placement='right'
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
         width={280}
@@ -92,24 +89,21 @@ const Navbar = () => {
             padding: 0,
           },
         }}
-        rootClassName="lg:hidden"
+        rootClassName='lg:hidden'
       >
-        <div className="p-4">
+        <div className='p-4'>
           <Menu
             selectedKeys={[pageActive]}
             defaultSelectedKeys={[routes[0].slug]}
             onSelect={({ key }) => {
-              setPageActive(key);
-              setMobileMenuOpen(false);
+              setPageActive(key)
+              setMobileMenuOpen(false)
             }}
-            className="!border-e-0"
-            items={routes.map((route) => ({
+            className='!border-e-0'
+            items={routes.map(route => ({
               key: route.slug,
               label: (
-                <Link
-                  href={route.slug}
-                  className="font-bold text-base text-primary"
-                >
+                <Link href={route.slug} className='font-bold text-base text-primary'>
                   {route.label}
                 </Link>
               ),
@@ -118,7 +112,7 @@ const Navbar = () => {
         </div>
       </Drawer>
     </Flex>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
