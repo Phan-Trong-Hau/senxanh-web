@@ -1,6 +1,8 @@
-import Image from "next/image";
+import { Image } from 'antd';
 
-import { Asset } from "@/utils/type";
+import { Asset } from '@/utils/type';
+
+import Border from '../common/Border';
 
 type Props = {
   title: string;
@@ -9,36 +11,41 @@ type Props = {
   imageInMobile: Asset;
 };
 
-const Banner: React.FC<Props> = ({ title, highlightTitle, image, imageInMobile }) => {
+const Banner: React.FC<Props> = ({
+  title,
+  highlightTitle,
+  image,
+  imageInMobile,
+}) => {
   return (
     <div className="container">
       <section className="section">
-        <h2 className="!font-bold text-xl md:text-3xl text-center">
+        <h2 className="!font-bold text-2xl md:text-4xl text-center">
           <span className="text-primary">{title}</span>
           <br />
-          <span className="text-secondary inline-block mt-1">{highlightTitle}</span>
+          <span className="text-secondary inline-block mt-1">
+            {highlightTitle}
+          </span>
         </h2>
         <div className="mt-3 md:mt-10 text-center mx-auto">
-          <Image
-            loader={({ src }) => src}
-            src={image.url}
-            alt="banner"
-            layout="fixed"
-            objectFit="contain"
-            width={image.width}
-            height={image.height}
-            className="w-full max-[768px]:hidden"
-          />
-          <Image
-            loader={({ src }) => src}
-            src={imageInMobile.url}
-            alt="banner"
-            layout="fixed"
-            objectFit="contain"
-            width={imageInMobile.width}
-            height={imageInMobile.height}
-            className="w-full md:hidden"
-          />
+          <Border>
+            <Image
+              src={image.url}
+              alt="banner"
+              className="w-full max-[768px]:hidden rounded-lg"
+              preview={{
+                maskClassName: 'rounded-lg',
+              }}
+            />
+            <Image
+              src={imageInMobile.url}
+              alt="banner"
+              className="w-full md:hidden rounded-lg"
+              preview={{
+                maskClassName: 'rounded-lg',
+              }}
+            />
+          </Border>
         </div>
       </section>
     </div>

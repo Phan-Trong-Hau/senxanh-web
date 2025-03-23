@@ -1,6 +1,6 @@
 'use client';
 
-import Border from '../common/Border'
+import Border from '../common/Border';
 
 type Props = {
   title: string;
@@ -14,7 +14,9 @@ const FAQs = ({ title, faqs }: Props) => {
   return (
     <div className="container text-primary">
       <section className="section">
-        <h2 className="text-center !font-bold text-4xl mb-8">{title}</h2>
+        <h2 className="text-center !font-bold text-2xl md:text-4xl mb-8">
+          {title}
+        </h2>
         {faqs.map((faq, index) => (
           <Border
             key={index}

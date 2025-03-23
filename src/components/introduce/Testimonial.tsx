@@ -1,9 +1,10 @@
-import { Asset } from "@/utils/type";
+import { Asset } from '@/utils/type';
 
-import CustomCarousel from "../common/CustomCarousel";
-import SingleArticle from "../common/SingleArticle";
+import CustomCarousel from '../common/CustomCarousel';
+import SingleArticle from '../common/SingleArticle';
 
 type Props = {
+  title: string;
   testimonials: Testimonial[];
 };
 
@@ -13,37 +14,39 @@ type Testimonial = {
   content: string;
 };
 
-const Testimonial: React.FC<Props> = ({ testimonials }) => {
+const Testimonial: React.FC<Props> = ({ title, testimonials }) => {
+  const settings = {
+    slidesToShow: 4,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="container text-primary">
       <section className="section">
-        <h2 className="!font-bold text-xl md:text-3xl text-center">CHIA SẺ CỦA PHỤ HUYNH</h2>
+        <h2 className="!font-bold text-2xl md:text-4xl text-center">
+          {title ?? 'Đánh giá khách hàng'}
+        </h2>
         <div className="mt-8">
-          <CustomCarousel
-            slidesToShow={4}
-            responsive={[
-              {
-                breakpoint: 1024,
-                settings: {
-                  slidesToShow: 3,
-                },
-              },
-              {
-                breakpoint: 768,
-                settings: {
-                  slidesToShow: 2,
-                },
-              },
-              {
-                breakpoint: 480,
-                settings: {
-                  slidesToShow: 1,
-                },
-              },
-            ]}
-            dots={false}
-            infinite={false}
-          >
+          <CustomCarousel {...settings}>
             {testimonials.map((testimonial, index) => (
               <SingleArticle
                 key={index}
