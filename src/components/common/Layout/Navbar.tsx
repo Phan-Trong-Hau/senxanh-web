@@ -45,7 +45,7 @@ const Navbar = () => {
           width={150}
           height={31}
           src={
-            'https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/logo_senxanh_713966778f.png'
+            'https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/logo_mau_921cc78d91.svg'
           }
         />
       </div>
@@ -69,7 +69,7 @@ const Navbar = () => {
         <ContactButton className='btn-primary-header' />
       </div>
 
-      <div className='self-end lg:hidden'>
+      <div className='self-end flex items-center lg:hidden'>
         <ContactButton className='btn-primary-header w-full mr-2' />
         <Button
           icon={<MenuOutlined />}

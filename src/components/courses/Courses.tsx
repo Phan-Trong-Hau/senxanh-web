@@ -18,12 +18,22 @@ type Props = {
 }
 
 const Courses = ({ title, courses }: Props) => {
+  const settings = {
+    slidesToShow: 3,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 640, settings: { slidesToShow: 1 } },
+    ],
+  }
+
   return (
     <div className='container'>
       <section className='section'>
-        <h2 className='text-4xl text-primary !font-bold text-center'>{title}</h2>
-        <div className='mt-8'>
-          <Carousel slidesToShow={3}>
+        <h2 className='text-2xl md:text-4xl text-primary !font-bold text-center'>
+          {title}
+        </h2>
+        <div className='mt-4 md:mt-8'>
+          <Carousel {...settings}>
             {courses.map(course => (
               <Article
                 key={course.slug}
