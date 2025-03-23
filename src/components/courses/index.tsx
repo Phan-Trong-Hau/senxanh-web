@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
 import Benefits from './Benefits'
 import CoursesSection from './Courses'
 import HeroBanner from './HeroBanner'
 
 const Courses = ({ coursesPage }: { coursesPage: any }) => {
-  const { heroBanner, benefits, groupedCourses } = coursesPage.data || {};
+  const { heroBanner, benefits, groupedCourses } = coursesPage.data || {}
 
   return (
     <>
@@ -21,7 +21,7 @@ const Courses = ({ coursesPage }: { coursesPage: any }) => {
 
       <Benefits {...benefits} />
     </>
-  );
-};
+  )
+}
 
-export default Courses;
+export default Courses

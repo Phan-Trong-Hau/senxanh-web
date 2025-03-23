@@ -1,30 +1,30 @@
-'use client';
+'use client'
 
 import { Form, Modal } from 'antd'
 
-import ContactForm from './ContactForm'
+import ContactForm from './'
 
 type ContactModalProps = {
-  isOpen: boolean;
-  onClose: () => void;
-  title?: string;
-};
+  isOpen: boolean
+  onClose: () => void
+  title?: string
+}
 
 const ContactModal = ({
   isOpen,
   onClose,
   title = 'LIÊN HỆ TƯ VẤN',
 }: ContactModalProps) => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
 
   const handleSubmit = (values: any) => {
-    onClose();
-  };
+    onClose()
+  }
 
   const handleCancel = () => {
-    form.resetFields();
-    onClose();
-  };
+    form.resetFields()
+    onClose()
+  }
 
   return (
     <Modal
@@ -34,11 +34,10 @@ const ContactModal = ({
       footer={null}
       width={500}
       centered
-      maskClosable={true}
-    >
+      maskClosable={true}>
       <ContactForm form={form} onFinish={handleSubmit} />
     </Modal>
-  );
-};
+  )
+}
 
-export default ContactModal;
+export default ContactModal
