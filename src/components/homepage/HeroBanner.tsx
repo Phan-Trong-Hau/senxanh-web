@@ -75,22 +75,22 @@ export default function HeroBanner({
         {/* Icons bay vào từ 4 góc */}
         {[
           {
-            src: icons[0].url,
+            src: icons[0]?.url,
             initial: { x: "100vw", y: "100vh", opacity: 0 },
             className: "w-1/15 top-1/2 right-6/25 transform -translate-y-1/2",
           },
           {
-            src: icons[1].url,
+            src: icons[1]?.url,
             initial: { x: "-100vw", y: "-100vh", opacity: 0 },
             className: "w-1/16 top-1/3 left-1/3 transform -translate-y-1/2",
           },
           {
-            src: icons[2].url,
+            src: icons[2]?.url,
             initial: { x: "100vw", y: "-100vh", opacity: 0 },
             className: "w-1/12 bottom-1/3 right-1/12 transform translate-y-1/2",
           },
           {
-            src: icons[3].url,
+            src: icons[3]?.url,
             initial: { x: "-100vw", y: "100vh", opacity: 0 },
             className: "w-1/14 bottom-1/3 left-1/5 transform translate-y-1/3",
           },
@@ -99,7 +99,7 @@ export default function HeroBanner({
             key={index}
             initial={icon.initial}
             animate={{ x: 0, y: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.2 * index }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
             src={icon.src}
             alt={`icon ${index + 1}`}
             className={`absolute ${icon.className} z-9`}
