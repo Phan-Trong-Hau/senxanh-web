@@ -1,35 +1,35 @@
-'use client';
+"use client";
 
-import { Button, Drawer, Flex, Menu } from 'antd'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { Button, Drawer, Flex, Menu } from "antd";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
-import { MenuOutlined } from '@ant-design/icons'
+import { MenuOutlined } from "@ant-design/icons";
 
-import ContactButton from './ContactButton'
+import ContactButton from "./ContactButton";
 
 const routes = [
   {
-    slug: '/',
-    label: 'Trang chủ',
+    slug: "/",
+    label: "Trang chủ",
   },
   {
-    slug: '/introduce',
-    label: 'Giới thiệu',
+    slug: "/introduce",
+    label: "Giới thiệu",
   },
   {
-    slug: '/courses',
-    label: 'Các khóa học',
+    slug: "/courses",
+    label: "Các khóa học",
   },
   {
-    slug: '/knowledge',
-    label: 'Kiến thức xanh',
+    slug: "/knowledge",
+    label: "Kiến thức xanh",
   },
 ];
 
 const Navbar = () => {
-  const [pageActive, setPageActive] = useState<string>('');
+  const [pageActive, setPageActive] = useState<string>("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -44,9 +44,7 @@ const Navbar = () => {
           alt="Sen Xanh logo"
           width={150}
           height={31}
-          src={
-            'https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/logo_senxanh_713966778f.png'
-          }
+          src={"https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/logo_mau_921cc78d91.svg"}
         />
       </div>
 
@@ -59,10 +57,7 @@ const Navbar = () => {
           items={routes.map((route) => ({
             key: route.slug,
             label: (
-              <Link
-                href={route.slug}
-                className="font-bold text-base text-primary"
-              >
+              <Link href={route.slug} className="font-bold text-base text-primary">
                 {route.label}
               </Link>
             ),
@@ -106,10 +101,7 @@ const Navbar = () => {
             items={routes.map((route) => ({
               key: route.slug,
               label: (
-                <Link
-                  href={route.slug}
-                  className="font-bold text-base text-primary"
-                >
+                <Link href={route.slug} className="font-bold text-base text-primary">
                   {route.label}
                 </Link>
               ),
