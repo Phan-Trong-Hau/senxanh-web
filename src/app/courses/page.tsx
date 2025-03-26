@@ -4,8 +4,8 @@ import fetchAPI from '@/utils/fetchApi'
 const Courses = async () => {
   const coursesPage = await fetchAPI({
     path: '/courses-page',
-  });
-  return <CoursesPage coursesPage={coursesPage} />;
-};
+  })
+  return <CoursesPage coursesPage={coursesPage} />
+}
 
-export default Courses;
+export default Courses

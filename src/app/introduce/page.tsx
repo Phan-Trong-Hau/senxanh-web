@@ -1,11 +1,12 @@
-import Homepage from '@/components/homepage';
-import fetchAPI from '@/utils/fetchApi';
+import IntroducePage from '@/components/introduce'
+import fetchAPI from '@/utils/fetchApi'
 
-const Home = async () => {
-  const homepage = await fetchAPI({
-    path: '/homepage',
-  });
-  return <Homepage homepage={homepage} />;
-};
+const Introduce = async () => {
+  const introduce = await fetchAPI({
+    path: '/introduce',
+  })
 
-export default Home;
+  return <IntroducePage introduce={introduce} />
+}
+
+export default Introduce

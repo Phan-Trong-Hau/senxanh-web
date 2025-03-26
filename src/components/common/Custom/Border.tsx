@@ -1,17 +1,17 @@
-'use client';
+'use client'
 
 import classNames from 'classnames'
 
 type Props = {
-  size?: number;
-  radius?: number;
-  offset?: number;
-  backgroundColor?: string;
-  className?: string;
-  classNameChildren?: string;
-  children: React.ReactNode;
-  [key: string]: any;
-};
+  size?: number
+  radius?: number
+  offset?: number
+  backgroundColor?: string
+  className?: string
+  classNameChildren?: string
+  children: React.ReactNode
+  [key: string]: any
+}
 
 const Border = ({
   size = 2,
@@ -36,11 +36,9 @@ const Border = ({
       }
       {...props}
     >
-      <div className={classNames('leading-0', classNameChildren)}>
-        {children}
-      </div>
+      <div className={classNames('leading-0', classNameChildren)}>{children}</div>
     </div>
-  );
-};
+  )
+}
 
-export default Border;
+export default Border
