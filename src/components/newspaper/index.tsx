@@ -3,6 +3,7 @@
 import { Breadcrumb } from 'antd'
 
 import ListArticle from '../common/Article/List'
+import SectionCTA from '../common/SectionCTA'
 import Content from './Content'
 
 type Props = {
@@ -36,6 +37,8 @@ const Newspaper: React.FC<Props> = ({ news }) => {
       </div>
 
       <Content {...news} />
+
+      <SectionCTA title='Cùng con rèn luyện kỹ năng sống ngay hôm nay Khai phá và chinh phục các giới hạn bản thân' />
 
       <ListArticle
         title='Các bài viết liên quan'
