@@ -15,7 +15,7 @@ const Courses = ({ coursesPage }: { coursesPage: any }) => {
         <ListArticle
           key={course.title}
           title={course.title}
-          courses={course.courses}
+          articles={course.courses}
           path={'/courses'}
         />
       ))}

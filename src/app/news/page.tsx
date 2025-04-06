@@ -1,3 +1,4 @@
+import NewsListPage from '@/components/news'
 import fetchAPI from '@/utils/fetchApi'
 
 const Home = async () => {
@@ -5,7 +6,18 @@ const Home = async () => {
     path: '/news-page',
   })
 
-  return <></>
+  const newsList = await fetchAPI({
+    path: '/newspapers',
+  })
+
+  return (
+    <NewsListPage
+      news={{
+        ...news.data,
+        newsList: newsList.data,
+      }}
+    />
+  )
 }
 
 export default Home

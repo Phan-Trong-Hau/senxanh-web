@@ -5,7 +5,7 @@ import { Asset } from '@/utils/type'
 import Carousel from '../Custom/Carousel'
 import Article from './'
 
-type Course = {
+type ArticleType = {
   title: string
   description: string
   thumbnail: Asset
@@ -14,11 +14,11 @@ type Course = {
 
 type Props = {
   title: string
-  courses: Course[]
+  articles: ArticleType[]
   path: string
 }
 
-const ListArticle = ({ title, courses, path }: Props) => {
+const ListArticle = ({ title, articles, path }: Props) => {
   const settings = {
     slidesToShow: 3,
     responsive: [
@@ -35,11 +35,11 @@ const ListArticle = ({ title, courses, path }: Props) => {
         </h2>
         <div className='mt-4 md:mt-8'>
           <Carousel {...settings}>
-            {courses.map(course => (
+            {articles.map(article => (
               <Article
-                key={course.slug}
-                {...course}
-                link={`${path}/${course.slug}`}
+                key={article.slug}
+                {...article}
+                link={`${path}/${article.slug}`}
                 className='px-2'
               />
             ))}

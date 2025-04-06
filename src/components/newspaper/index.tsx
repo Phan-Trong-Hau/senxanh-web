@@ -42,13 +42,13 @@ const Newspaper: React.FC<Props> = ({ news }) => {
 
       <ListArticle
         title='Các bài viết liên quan'
-        courses={[news, news, news, news, news]}
+        articles={[news, news, news, news, news]}
         path='/news'
       />
 
       <ListArticle
         title='Các khóa học dành cho bạn'
-        courses={[news, news, news, news, news]}
+        articles={[news, news, news, news, news]}
         path='/courses'
       />
     </>
