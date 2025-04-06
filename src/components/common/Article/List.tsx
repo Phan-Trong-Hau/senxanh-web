@@ -2,8 +2,8 @@
 
 import { Asset } from '@/utils/type'
 
-import Article from '../common/Article'
-import Carousel from '../common/Custom/Carousel'
+import Carousel from '../Custom/Carousel'
+import Article from './'
 
 type Course = {
   title: string
@@ -15,9 +15,10 @@ type Course = {
 type Props = {
   title: string
   courses: Course[]
+  path: string
 }
 
-const Courses = ({ title, courses }: Props) => {
+const ListArticle = ({ title, courses, path }: Props) => {
   const settings = {
     slidesToShow: 3,
     responsive: [
@@ -38,7 +39,7 @@ const Courses = ({ title, courses }: Props) => {
               <Article
                 key={course.slug}
                 {...course}
-                link={`/courses/${course.slug}`}
+                link={`${path}/${course.slug}`}
                 className='px-2'
               />
             ))}
@@ -49,4 +50,4 @@ const Courses = ({ title, courses }: Props) => {
   )
 }
 
-export default Courses
+export default ListArticle

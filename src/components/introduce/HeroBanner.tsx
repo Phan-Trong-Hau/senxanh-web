@@ -28,7 +28,7 @@ const HeroBanner: React.FC<Props> = ({
         height={background.height}
         objectFit='contain'
         objectPosition='top'
-        className='w-screen max-[768px]:hidden'
+        className='w-screen hidden md:block'
       />
       <Image
         loader={({ src }) => src}

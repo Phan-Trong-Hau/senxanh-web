@@ -1,7 +1,7 @@
 'use client'
 
+import ListArticle from '../common/Article/List'
 import Benefits from './Benefits'
-import CoursesSection from './Courses'
 import HeroBanner from './HeroBanner'
 
 const Courses = ({ coursesPage }: { coursesPage: any }) => {
@@ -12,10 +12,11 @@ const Courses = ({ coursesPage }: { coursesPage: any }) => {
       <HeroBanner {...heroBanner} />
 
       {groupedCourses.map((course: any) => (
-        <CoursesSection
+        <ListArticle
           key={course.title}
           title={course.title}
           courses={course.courses}
+          path={'/courses'}
         />
       ))}
 
