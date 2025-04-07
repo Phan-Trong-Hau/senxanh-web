@@ -10,9 +10,6 @@ const Faqs = async () => {
     path: '/faqs',
   })
 
-  console.log(faqPage, 'faqPage')
-  console.log(faqs, 'faqs')
-
   return <FAQs faqPage={faqPage} faqs={faqs} />
 }
 

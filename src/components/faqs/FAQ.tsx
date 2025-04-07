@@ -24,6 +24,7 @@ const FAQs = ({ title, faqs, allFaqs }: Props) => {
   const [activeKey, setActiveKey] = useState<string | string[] | undefined>(undefined)
   const [currentPage, setCurrentPage] = useState(1)
   const faqPerPage = 5
+
   const updateFaqs = (
     faqs: { id: string; title: string; description: string }[],
     allFaqs: { id: string; title: string; description: string }[],
@@ -36,7 +37,6 @@ const FAQs = ({ title, faqs, allFaqs }: Props) => {
       }
     })
 
-    console.log('mergedArray', mergedArray)
     return mergedArray
   }
 
@@ -61,6 +61,9 @@ const FAQs = ({ title, faqs, allFaqs }: Props) => {
         <div className='max-w-[1024px] mx-auto'>
           {currentFaqs.map((faq, index) => {
             const key = `${index}`
+            const isOpen = Array.isArray(activeKey)
+              ? activeKey.includes(key)
+              : activeKey === key
 
             return (
               <Border key={key} className='mt-4' classNameChildren='px-10 py-4'>
@@ -85,7 +88,7 @@ const FAQs = ({ title, faqs, allFaqs }: Props) => {
                           alt='icon'
                           width={20}
                           height={20}
-                          className={`w-5 h-5 fill-[#1c74bc] absolute top-1/2 -translate-y-1/2 right-0 transition-transform duration-300`}
+                          className={`w-5 h-5 fill-[#1c74bc] absolute top-1/2 -translate-y-1/2 right-0 transition-transform duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}
                           objectFit='contain'
                         />
                       </div>
