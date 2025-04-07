@@ -1,27 +1,28 @@
 'use client'
 
-import FAQs from './FAQ'
-import HeroBanner from './HeroBanner'
-import SectionCTA from './SectionCTA'
-import Testimonial from './Testimonial'
+import HeroBanner from "../common/Layout/HeroBanner";
+import SectionCTA from "../common/Layout/SectionCTA";
+import Testimonial from "../common/Layout/Testimonial";
+import FAQs from "./FAQ";
 
 type Props = {
   faqs: any
+  faqPage: any
 }
 
-const Homepage: React.FC<Props> = ({ faqs }) => {
-  const { heroBanner, FAQsSection, sectionCTA, testimonials, titleTestimonial } =
-    faqs?.data || {}
+const Homepage: React.FC<Props> = ({ faqs, faqPage }) => {
+  const { heroBanner, FAQsSection, CTASection, testimonials, titleTestimonial } =
+    faqPage?.data || {}
 
   return (
     <>
       <HeroBanner {...heroBanner} />
 
-      <FAQs {...FAQsSection} />
+      <FAQs {...FAQsSection} allFaqs={faqs?.data} />
 
       <Testimonial testimonials={testimonials} title={titleTestimonial} />
 
-      <SectionCTA {...sectionCTA} />
+      <SectionCTA {...CTASection} />
     </>
   )
 }

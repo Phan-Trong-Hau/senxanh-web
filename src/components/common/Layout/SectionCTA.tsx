@@ -1,12 +1,12 @@
 'use client'
 
-import { Button } from 'antd'
-import classNames from 'classnames'
-import { useState } from 'react'
+import { Button } from "antd";
+import classNames from "classnames";
+import { useState } from "react";
 
-import { CTA } from '@/utils/type'
+import { CTA } from "@/utils/type";
 
-import ContactModal from '../common/ContactForm/Modal'
+import ContactModal from "../ContactForm/Modal";
 
 type Props = {
   title: string

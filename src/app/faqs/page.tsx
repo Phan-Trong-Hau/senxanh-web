@@ -1,12 +1,19 @@
-import FAQs from '@/components/faqs'
-import fetchAPI from '@/utils/fetchApi'
+import FAQs from "@/components/faqs";
+import fetchAPI from "@/utils/fetchApi";
 
 const Faqs = async () => {
-  const faqs = await fetchAPI({
+  const faqPage = await fetchAPI({
     path: '/fa-qs-page',
   })
 
-  return <FAQs faqs={faqs} />
+  const faqs = await fetchAPI({
+    path: '/faqs',
+  })
+
+  console.log(faqPage, 'faqPage')
+  console.log(faqs, 'faqs')
+
+  return <FAQs faqPage={faqPage} faqs={faqs} />
 }
 
 export default Faqs
