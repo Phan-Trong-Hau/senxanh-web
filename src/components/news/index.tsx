@@ -3,6 +3,7 @@
 import ListArticle from '../common/Article/List'
 import Highlight from './Highlight'
 import ListNews from './ListNews'
+import Search from './Search'
 
 type Props = {
   news: any
@@ -12,7 +13,9 @@ const NewsListPage: React.FC<Props> = ({ news }) => {
   const { highlightNewspapers, newsList } = news
 
   return (
-    <>
+    <div className='pt-10'>
+      <Search newsList={newsList} />
+
       <Highlight newsList={highlightNewspapers} />
 
       <ListNews newsList={newsList} />
@@ -22,7 +25,7 @@ const NewsListPage: React.FC<Props> = ({ news }) => {
         articles={[...newsList, ...newsList, ...newsList]}
         path='/courses'
       />
-    </>
+    </div>
   )
 }
 
