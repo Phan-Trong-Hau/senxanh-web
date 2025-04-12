@@ -1,10 +1,10 @@
 'use client'
 
-import { Collapse, Pagination } from "antd";
-import Image from "next/image";
-import { useState } from "react";
+import { Collapse, Pagination } from 'antd'
+import Image from 'next/image'
+import { useState } from 'react'
 
-import Border from "../common/Custom/Border";
+import Border from '../common/Custom/Border'
 
 type Props = {
   title: string
@@ -66,7 +66,10 @@ const FAQs = ({ title, faqs, allFaqs }: Props) => {
               : activeKey === key
 
             return (
-              <Border key={key} className='mt-4' classNameChildren='px-10 py-4'>
+              <Border
+                key={key}
+                className='mt-4'
+                classNameChildren='px-4 py-2 md:px-10 md:py-4'>
                 <Collapse
                   activeKey={activeKey}
                   onChange={handleCollapseChange}
@@ -78,23 +81,21 @@ const FAQs = ({ title, faqs, allFaqs }: Props) => {
                   <Collapse.Panel
                     key={key}
                     header={
-                      <div
-                        className='font-semibold text-lg cursor-pointer relative'
-                        style={{ paddingRight: '10px' }}>
-                        <span>{faq.title}</span>
+                      <div className='font-semibold text-lg cursor-pointer relative'>
+                        <div className='pr-10'>{faq.title}</div>
                         <Image
                           loader={({ src }) => src}
                           src='https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/plus_icon_2ff4c8cafc.svg'
                           alt='icon'
                           width={20}
                           height={20}
-                          className={`w-5 h-5 fill-[#1c74bc] absolute top-1/2 -translate-y-1/2 right-0 transition-transform duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}
+                          className={`w-4 h-4 md:w-5 md:h-5 fill-[#1c74bc] absolute top-1/2 -translate-y-1/2 right-0 transition-transform duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}
                           objectFit='contain'
                         />
                       </div>
                     }
                     showArrow={false}>
-                    <p className='text-sm mt-2'>{faq.description}</p>
+                    <p className='text-base mt-2 pr-4 md:pr-10'>{faq.description}</p>
                   </Collapse.Panel>
                 </Collapse>
               </Border>

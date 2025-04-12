@@ -1,9 +1,9 @@
 'use client'
 
-import HeroBanner from "../common/Layout/HeroBanner";
-import SectionCTA from "../common/Layout/SectionCTA";
-import Testimonial from "../common/Layout/Testimonial";
-import FAQs from "./FAQ";
+import HeroBanner from '../common/Layout/HeroBanner'
+import SectionCTA from '../common/Layout/SectionCTA'
+import Testimonial from '../common/Layout/Testimonial'
+import FAQs from './FAQ'
 
 type Props = {
   faqs: any
@@ -16,13 +16,13 @@ const Homepage: React.FC<Props> = ({ faqs, faqPage }) => {
 
   return (
     <>
-      <HeroBanner {...heroBanner} />
+      {!!heroBanner && <HeroBanner {...heroBanner} />}
 
       <FAQs {...FAQsSection} allFaqs={faqs?.data} />
 
-      <Testimonial testimonials={testimonials} title={titleTestimonial} />
-
       <SectionCTA {...CTASection} />
+
+      <Testimonial testimonials={testimonials} title={titleTestimonial} />
     </>
   )
 }
