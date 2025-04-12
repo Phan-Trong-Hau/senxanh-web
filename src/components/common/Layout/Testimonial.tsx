@@ -1,7 +1,7 @@
-import { Asset } from '@/utils/type'
+import { Asset } from "@/utils/type";
 
-import SingleArticle from '../common/Article/Single'
-import Carousel from '../common/Custom/Carousel'
+import SingleArticle from "../Article/Single";
+import CustomCarousel from "../Custom/Carousel";
 
 type Props = {
   title: string
@@ -44,7 +44,7 @@ const Testimonial: React.FC<Props> = ({ title, testimonials }) => {
       <section className='section'>
         <h2 className='!font-bold text-2xl md:text-4xl text-center'>{title}</h2>
         <div className='mt-8'>
-          <Carousel {...settings}>
+          <CustomCarousel {...settings}>
             {testimonials.map((testimonial, index) => (
               <SingleArticle
                 key={index}
@@ -54,7 +54,7 @@ const Testimonial: React.FC<Props> = ({ title, testimonials }) => {
                 className='px-2'
               />
             ))}
-          </Carousel>
+          </CustomCarousel>
         </div>
       </section>
     </div>
