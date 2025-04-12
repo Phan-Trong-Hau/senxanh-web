@@ -1,16 +1,12 @@
 'use client'
 
-import { Button } from "antd";
-import classNames from "classnames";
-import { useState } from "react";
+import { Button } from 'antd'
+import classNames from 'classnames'
+import { useState } from 'react'
 
-import { CTA } from "@/utils/type";
+import { CTA } from '@/utils/type'
 
-<<<<<<<< HEAD:src/components/common/SectionCTA.tsx
 import ContactModal from './ContactForm/Modal'
-========
-import ContactModal from "../ContactForm/Modal";
->>>>>>>> 20d7998bfd6a9d56162c92994e3979151b00c62c:src/components/common/Layout/SectionCTA.tsx
 
 type Props = {
   title: string

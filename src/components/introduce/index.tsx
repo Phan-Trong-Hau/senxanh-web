@@ -1,10 +1,10 @@
 'use client'
 
-import HeroBanner from "../common/Layout/HeroBanner";
-import Testimonial from "../common/Layout/Testimonial";
-import Banner from "./Banner";
-import Overview from "./Overview";
-import Partner from "./Partner";
+import HeroBanner from '../common/HeroBanner'
+import Testimonial from '../common/Testimonial'
+import Banner from './Banner'
+import Overview from './Overview'
+import Partner from './Partner'
 
 type Props = {
   introduce: any

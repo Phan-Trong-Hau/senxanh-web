@@ -1,8 +1,8 @@
 'use client'
 
-import HeroBanner from '../common/Layout/HeroBanner'
-import SectionCTA from '../common/Layout/SectionCTA'
-import Testimonial from '../common/Layout/Testimonial'
+import HeroBanner from '../common/HeroBanner'
+import SectionCTA from '../common/SectionCTA'
+import Testimonial from '../common/Testimonial'
 import FAQs from './FAQ'
 
 type Props = {
