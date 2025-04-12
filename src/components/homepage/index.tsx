@@ -1,6 +1,6 @@
 'use client'
 
-import SectionCTA from '../common/SectionCTA'
+import SectionCTA from '../common/Layout/SectionCTA'
 import AboutUs from './AboutUs'
 import FAQs from './FAQ'
 import FavoriteCourses from './FavoriteCourses'
