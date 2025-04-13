@@ -196,6 +196,7 @@ ol {
   border-radius: 2px;
 }
 
+.menu-items > .ant-menu-submenu-selected::after,
 .menu-items > .ant-menu-item-active::after,
 .menu-items > .ant-menu-item-selected::after {
   opacity: 1;

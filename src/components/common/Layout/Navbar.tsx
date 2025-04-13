@@ -3,7 +3,7 @@
 import { Button, Drawer, Flex, Menu } from 'antd'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { Children, useEffect, useState } from 'react'
 
 import { MenuOutlined } from '@ant-design/icons'
 
@@ -25,6 +25,34 @@ const routes = [
   {
     slug: '/knowledge',
     label: 'Kiến thức xanh',
+    children: [
+      {
+        slug: '/knowledge?tab=skills',
+        label: 'Vườn kỹ năng',
+      },
+      {
+        slug: '/knowledge?tab=knowledge',
+        label: 'Vườn kiến thức',
+      },
+    ],
+  },
+  {
+    slug: '/news',
+    label: 'Tin tức',
+    children: [
+      {
+        slug: '/news',
+        label: 'Báo chí',
+      },
+      {
+        slug: '/customer',
+        label: 'Khách hàng',
+      },
+      {
+        slug: '/faqs',
+        label: 'Hỏi đáp',
+      },
+    ],
   },
 ]
 
@@ -54,15 +82,25 @@ const Navbar = () => {
         <Menu
           mode='horizontal'
           selectedKeys={[pageActive]}
-          defaultSelectedKeys={[routes[0].slug]}
+          defaultSelectedKeys={['/']}
           onSelect={({ key }) => setPageActive(key)}
           items={routes.map(route => ({
             key: route.slug,
             label: (
-              <Link href={route.slug} className='font-bold text-base text-primary'>
-                {route.label}
-              </Link>
+              <>
+                <Link href={route.slug} className='font-bold text-base text-primary'>
+                  {route.label}
+                </Link>
+              </>
             ),
+            children: route.children?.map(child => ({
+              key: child.slug,
+              label: (
+                <Link href={child.slug} className='font-bold text-base text-primary'>
+                  {child.label}
+                </Link>
+              ),
+            })),
           }))}
           className='menu-items flex-1 justify-end !border-b-0'
         />
@@ -98,6 +136,7 @@ const Navbar = () => {
               setPageActive(key)
               setMobileMenuOpen(false)
             }}
+            mode='inline'
             className='!border-e-0'
             items={routes.map(route => ({
               key: route.slug,
@@ -106,6 +145,14 @@ const Navbar = () => {
                   {route.label}
                 </Link>
               ),
+              children: route.children?.map(child => ({
+                key: child.slug,
+                label: (
+                  <Link href={child.slug} className='font-bold text-base text-primary'>
+                    {child.label}
+                  </Link>
+                ),
+              })),
             }))}
           />
         </div>
