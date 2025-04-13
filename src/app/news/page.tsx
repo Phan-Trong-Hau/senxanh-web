@@ -1,7 +1,7 @@
 import NewsListPage from '@/components/news'
 import fetchAPI from '@/utils/fetchApi'
 
-const Home = async () => {
+const News = async () => {
   const news = await fetchAPI({
     path: '/news-page',
   })
@@ -20,4 +20,4 @@ const Home = async () => {
   )
 }
 
-export default Home
+export default News
