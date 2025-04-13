@@ -16,9 +16,10 @@ type Props = {
   title: string
   articles: ArticleType[]
   path: string
+  id?: string
 }
 
-const ListArticle = ({ title, articles, path }: Props) => {
+const ListArticle = ({ title, articles, path, id }: Props) => {
   const settings = {
     slidesToShow: 3,
     responsive: [
@@ -28,7 +29,7 @@ const ListArticle = ({ title, articles, path }: Props) => {
   }
 
   return (
-    <div className='container'>
+    <div className='container scroll-mt-28' id={id}>
       <section className='section'>
         <h2 className='text-2xl md:text-4xl text-primary !font-bold text-center'>
           {title}
