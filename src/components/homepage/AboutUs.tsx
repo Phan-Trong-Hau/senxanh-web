@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { redirect } from 'next/navigation'
 import { useState } from 'react'
 
 import { Asset } from '@/utils/type'
@@ -8,14 +9,17 @@ import { Asset } from '@/utils/type'
 import Border from '../common/Custom/Border'
 import Markdown from '../common/Custom/Markdown'
 
+type Widget = {
+  label: string
+  thumbnail: Asset
+  title: string
+  description: string
+  key: string
+}
+
 type Props = {
   title: string
-  widgets: {
-    label: string
-    thumbnail: Asset
-    title: string
-    description: string
-  }[]
+  widgets: Widget[]
 }
 
 const AboutUs = ({ title, widgets }: Props) => {
@@ -34,7 +38,11 @@ const AboutUs = ({ title, widgets }: Props) => {
               <Border
                 key={index}
                 className='cursor-pointer h-fit'
-                onClick={() => setWidgetActive(widget)}>
+                onMouseEnter={() => setWidgetActive(widget)}
+                onMouseLeave={() => setWidgetActive(widgets[3])}
+                onClick={() => {
+                  redirect(`/courses#${widget.key}`)
+                }}>
                 <Image
                   loader={({ src }) => src}
                   src={widget.thumbnail.url}

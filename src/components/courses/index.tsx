@@ -17,6 +17,7 @@ const Courses = ({ coursesPage }: { coursesPage: any }) => {
           title={course.title}
           articles={course.courses}
           path={'/courses'}
+          id={course.key}
         />
       ))}
 
