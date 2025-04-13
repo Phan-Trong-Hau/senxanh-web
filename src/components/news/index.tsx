@@ -15,7 +15,7 @@ const NewsListPage: React.FC<Props> = ({ news }) => {
     <>
       <Highlight newsList={highlightNewspapers} />
 
-      <ListNews newsList={newsList} />
+      <ListNews newsList={newsList} title='Tất cả bài viết' />
 
       <ListArticle
         title='Các khóa học dành cho bạn'

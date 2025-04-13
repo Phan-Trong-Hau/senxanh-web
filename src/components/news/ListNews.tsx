@@ -6,10 +6,11 @@ import { useState } from 'react'
 import Article from '../common/Article'
 
 type Props = {
+  title: string
   newsList: any[]
 }
 
-const ListNews = ({ newsList }: Props) => {
+const ListNews = ({ title, newsList }: Props) => {
   const list = newsList
     ?.concat(newsList)
     .concat(newsList)
@@ -51,7 +52,7 @@ const ListNews = ({ newsList }: Props) => {
     <div className='container'>
       <div className='section'>
         <div className='text-3xl text-center font-bold text-primary mb-6'>
-          Tất cả tin tức
+          {title}          
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {articles?.map((news, index) => <Article {...news} />)}

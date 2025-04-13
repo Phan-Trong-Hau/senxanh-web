@@ -3,7 +3,7 @@
 import { Button, Drawer, Flex, Menu } from 'antd'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Children, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { MenuOutlined } from '@ant-design/icons'
 
@@ -23,7 +23,7 @@ const routes = [
     label: 'Các khóa học',
   },
   {
-    slug: '/knowledge',
+    slug: null,
     label: 'Kiến thức xanh',
     children: [
       {
@@ -37,7 +37,7 @@ const routes = [
     ],
   },
   {
-    slug: '/news',
+    slug: null,
     label: 'Tin tức',
     children: [
       {
@@ -78,17 +78,19 @@ const Navbar = () => {
         />
       </div>
 
-      <div className='hidden lg:flex flex-1 justify-end items-center'>
+      <div className='hidden lg:flex flex-1 gap-4 justify-end items-center'>
         <Menu
           mode='horizontal'
           selectedKeys={[pageActive]}
           defaultSelectedKeys={['/']}
           onSelect={({ key }) => setPageActive(key)}
           items={routes.map(route => ({
-            key: route.slug,
+            key: route.slug ?? route.label,
             label: (
               <>
-                <Link href={route.slug} className='font-bold text-base text-primary'>
+                <Link
+                  href={route.slug ?? ''}
+                  className='font-bold text-base text-primary'>
                   {route.label}
                 </Link>
               </>
@@ -107,8 +109,8 @@ const Navbar = () => {
         <ContactButton className='btn-primary-header' />
       </div>
 
-      <div className='self-end flex items-center lg:hidden'>
-        <ContactButton className='btn-primary-header w-full mr-2' />
+      <div className='self-end flex items-center lg:hidden gap-2'>
+        <ContactButton className='btn-primary-header w-full' />
         <Button
           icon={<MenuOutlined />}
           type='text'
@@ -131,7 +133,7 @@ const Navbar = () => {
         <div className='p-4'>
           <Menu
             selectedKeys={[pageActive]}
-            defaultSelectedKeys={[routes[0].slug]}
+            defaultSelectedKeys={['/']}
             onSelect={({ key }) => {
               setPageActive(key)
               setMobileMenuOpen(false)
@@ -139,9 +141,11 @@ const Navbar = () => {
             mode='inline'
             className='!border-e-0'
             items={routes.map(route => ({
-              key: route.slug,
+              key: route.slug ?? route.label,
               label: (
-                <Link href={route.slug} className='font-bold text-base text-primary'>
+                <Link
+                  href={route.slug ?? ''}
+                  className='font-bold text-base text-primary'>
                   {route.label}
                 </Link>
               ),
