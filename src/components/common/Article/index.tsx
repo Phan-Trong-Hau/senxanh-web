@@ -1,6 +1,6 @@
 'use client'
 
-import { App, Image } from 'antd'
+import { App, Image, Tooltip } from 'antd'
 import classNames from 'classnames'
 import { useRouter } from 'next/navigation'
 
@@ -46,12 +46,16 @@ const Article = ({ title, description, thumbnail, link, className }: Article) =>
           </Border>
         </div>
         <div className='flex flex-col gap-2 p-4 pb-6 flex-1'>
-          <div
-            onClick={handleClick}
-            className='font-bold text-lg text-primary cursor-pointer line-clamp-2'>
-            {title}
-          </div>
-          <p className='text-base text-gray-900 line-clamp-3'>{description}</p>
+          <Tooltip title={title}>
+            <div
+              onClick={handleClick}
+              className='font-bold text-lg text-primary cursor-pointer line-clamp-2'>
+              {title}
+            </div>
+          </Tooltip>
+          <Tooltip title={description}>
+            <p className='text-base text-gray-900 line-clamp-3'>{description}</p>
+          </Tooltip>
           <div
             className='text-center text-secondary cursor-pointer font-bold mt-auto'
             onClick={handleClick}>

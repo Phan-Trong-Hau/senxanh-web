@@ -23,8 +23,36 @@ const routes = [
     label: 'Các khóa học',
   },
   {
-    slug: '/knowledge',
+    slug: null,
     label: 'Kiến thức xanh',
+    children: [
+      {
+        slug: '/knowledge?tab=skills',
+        label: 'Vườn kỹ năng',
+      },
+      {
+        slug: '/knowledge?tab=training',
+        label: 'Huấn luyện cá nhân',
+      },
+    ],
+  },
+  {
+    slug: null,
+    label: 'Tin tức',
+    children: [
+      {
+        slug: '/news',
+        label: 'Báo chí',
+      },
+      {
+        slug: '/customer',
+        label: 'Khách hàng',
+      },
+      {
+        slug: '/faqs',
+        label: 'Hỏi đáp',
+      },
+    ],
   },
 ]
 
@@ -50,27 +78,39 @@ const Navbar = () => {
         />
       </div>
 
-      <div className='hidden lg:flex flex-1 justify-end items-center'>
+      <div className='hidden lg:flex flex-1 gap-4 justify-end items-center'>
         <Menu
           mode='horizontal'
           selectedKeys={[pageActive]}
-          defaultSelectedKeys={[routes[0].slug]}
+          defaultSelectedKeys={['/']}
           onSelect={({ key }) => setPageActive(key)}
           items={routes.map(route => ({
-            key: route.slug,
+            key: route.slug ?? route.label,
             label: (
-              <Link href={route.slug} className='font-bold text-base text-primary'>
-                {route.label}
-              </Link>
+              <>
+                <Link
+                  href={route.slug ?? ''}
+                  className='font-bold text-base text-primary'>
+                  {route.label}
+                </Link>
+              </>
             ),
+            children: route.children?.map(child => ({
+              key: child.slug,
+              label: (
+                <Link href={child.slug} className='font-bold text-base text-primary'>
+                  {child.label}
+                </Link>
+              ),
+            })),
           }))}
           className='menu-items flex-1 justify-end !border-b-0'
         />
         <ContactButton className='btn-primary-header' />
       </div>
 
-      <div className='self-end flex items-center lg:hidden'>
-        <ContactButton className='btn-primary-header w-full mr-2' />
+      <div className='self-end flex items-center lg:hidden gap-2'>
+        <ContactButton className='btn-primary-header w-full' />
         <Button
           icon={<MenuOutlined />}
           type='text'
@@ -93,19 +133,30 @@ const Navbar = () => {
         <div className='p-4'>
           <Menu
             selectedKeys={[pageActive]}
-            defaultSelectedKeys={[routes[0].slug]}
+            defaultSelectedKeys={['/']}
             onSelect={({ key }) => {
               setPageActive(key)
               setMobileMenuOpen(false)
             }}
+            mode='inline'
             className='!border-e-0'
             items={routes.map(route => ({
-              key: route.slug,
+              key: route.slug ?? route.label,
               label: (
-                <Link href={route.slug} className='font-bold text-base text-primary'>
+                <Link
+                  href={route.slug ?? ''}
+                  className='font-bold text-base text-primary'>
                   {route.label}
                 </Link>
               ),
+              children: route.children?.map(child => ({
+                key: child.slug,
+                label: (
+                  <Link href={child.slug} className='font-bold text-base text-primary'>
+                    {child.label}
+                  </Link>
+                ),
+              })),
             }))}
           />
         </div>

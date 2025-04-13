@@ -1,7 +1,7 @@
-import { Asset } from "@/utils/type";
+import { Asset } from '@/utils/type'
 
-import SingleArticle from "../Article/Single";
-import CustomCarousel from "../Custom/Carousel";
+import SingleArticle from './Article/Single'
+import CustomCarousel from './Custom/Carousel'
 
 type Props = {
   title: string

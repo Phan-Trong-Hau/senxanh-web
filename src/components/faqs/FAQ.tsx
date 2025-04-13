@@ -69,7 +69,7 @@ const FAQs = ({ title, faqs, allFaqs }: Props) => {
               <Border
                 key={key}
                 className='mt-4'
-                classNameChildren='px-4 py-2 md:px-10 md:py-4'>
+                classNameChildren='px-4 py-2 md:px-8 md:py-3'>
                 <Collapse
                   activeKey={activeKey}
                   onChange={handleCollapseChange}

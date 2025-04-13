@@ -1,10 +1,10 @@
 'use client'
 
-import SectionCTA from "../common/Layout/SectionCTA";
-import AboutUs from "./AboutUs";
-import FAQs from "./FAQ";
-import FavoriteCourses from "./FavoriteCourses";
-import HeroBanner from "./HeroBanner";
+import SectionCTA from '../common/SectionCTA'
+import AboutUs from './AboutUs'
+import FAQs from './FAQ'
+import FavoriteCourses from './FavoriteCourses'
+import HeroBanner from './HeroBanner'
 
 type Props = {
   homepage: any
