@@ -31,8 +31,8 @@ const routes = [
         label: 'Vườn kỹ năng',
       },
       {
-        slug: '/knowledge?tab=knowledge',
-        label: 'Vườn kiến thức',
+        slug: '/knowledge?tab=training',
+        label: 'Huấn luyện cá nhân',
       },
     ],
   },
