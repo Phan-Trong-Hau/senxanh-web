@@ -1,10 +1,10 @@
 'use client'
 
-import { Collapse, Pagination } from 'antd'
-import Image from 'next/image'
-import { useState } from 'react'
+import { Collapse, Pagination } from "antd";
+import Image from "next/image";
+import { useState } from "react";
 
-import Border from '../common/Custom/Border'
+import Border from "../common/Custom/Border";
 
 type Props = {
   title: string
