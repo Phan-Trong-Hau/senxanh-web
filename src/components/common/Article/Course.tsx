@@ -26,19 +26,19 @@ const CourseArticle = ({ title, thumbnail, className }: Article) => {
 
   return (
     <div className={classNames('w-full', className)}>
-      <div className='flex h-full max-h-50 flex-col items-start gap-4 px-2'>
+      <div className='flex h-full flex-col items-start gap-4 px-2'>
         <Border radius={12} className='shrink-0'>
           <Image
             src={thumbnail.url}
             alt={title}
-            width={240}
-            height={120}
+            width={280}
+            height={160}
             className='rounded-xl object-cover'
             preview={{ maskClassName: 'rounded-xl' }}
           />
         </Border>
 
-        <div className='flex h-full flex-1 flex-col items-center justify-between gap-3'>
+        <div className='flex h-full max-w-[280px] flex-1 flex-col items-center justify-between gap-3'>
           <Tooltip title={title}>
             <div
               onClick={handleClick}

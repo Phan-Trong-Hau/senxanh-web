@@ -67,18 +67,20 @@ const Navbar = () => {
   return (
     <Flex justify='space-between' align='center' className='container'>
       <div className='-mt-2'>
-        <Image
-          loader={({ src }) => src}
-          alt='Sen Xanh logo'
-          width={150}
-          height={31}
-          src={
-            'https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/logo_mau_921cc78d91.svg'
-          }
-        />
+        <Link href='/' className='flex items-center' onClick={() => setPageActive('/')}>
+          <Image
+            loader={({ src }) => src}
+            alt='Sen Xanh logo'
+            width={150}
+            height={31}
+            src={
+              'https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/logo_mau_921cc78d91.svg'
+            }
+          />
+        </Link>
       </div>
 
-      <div className='hidden lg:flex flex-1 gap-4 justify-end items-center'>
+      <div className='hidden flex-1 items-center justify-end gap-4 lg:flex'>
         <Menu
           mode='horizontal'
           selectedKeys={[pageActive]}
@@ -90,7 +92,7 @@ const Navbar = () => {
               <>
                 <Link
                   href={route.slug ?? ''}
-                  className='font-bold text-base text-primary'>
+                  className='text-primary text-base font-bold'>
                   {route.label}
                 </Link>
               </>
@@ -98,7 +100,7 @@ const Navbar = () => {
             children: route.children?.map(child => ({
               key: child.slug,
               label: (
-                <Link href={child.slug} className='font-bold text-base text-primary'>
+                <Link href={child.slug} className='text-primary text-base font-bold'>
                   {child.label}
                 </Link>
               ),
@@ -109,7 +111,7 @@ const Navbar = () => {
         <ContactButton className='btn-primary-header' />
       </div>
 
-      <div className='self-end flex items-center lg:hidden gap-2'>
+      <div className='flex items-center gap-2 self-end lg:hidden'>
         <ContactButton className='btn-primary-header w-full' />
         <Button
           icon={<MenuOutlined />}
@@ -145,14 +147,14 @@ const Navbar = () => {
               label: (
                 <Link
                   href={route.slug ?? ''}
-                  className='font-bold text-base text-primary'>
+                  className='text-primary text-base font-bold'>
                   {route.label}
                 </Link>
               ),
               children: route.children?.map(child => ({
                 key: child.slug,
                 label: (
-                  <Link href={child.slug} className='font-bold text-base text-primary'>
+                  <Link href={child.slug} className='text-primary text-base font-bold'>
                     {child.label}
                   </Link>
                 ),

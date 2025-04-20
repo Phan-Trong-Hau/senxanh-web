@@ -81,32 +81,14 @@ const TabsSkill = ({ tabs, newspaper }: Props) => {
   }
 
   return (
-    <>
-      <div className='my-6 flex justify-center gap-4'>
-        {tabs.map(tab => (
-          <Button
-            key={tab.key}
-            className={classNames(
-              'rounded-full border px-4 py-2 font-semibold',
-              activeTabKey === tab.key ? 'btn-primary' : 'btn-border',
-            )}
-            onClick={() => handleTabClick(tab.key)}>
-            {tab.label}
-          </Button>
-        ))}
-      </div>
-
-      <div className='container !mb-4'>
+    <div className='container !mb-4'>
+      <div className='section'>
         <Search newsList={currentTab?.articles || []} onSearch={handleSearch} />
-      </div>
 
-      <Highlight articles={currentTab?.highlightArticles || []} />
+        <Highlight articles={currentTab?.highlightArticles || []} />
 
-      <div className='container !mb-10 grid grid-cols-1 gap-4 md:grid-cols-5'>
-        <div className='md:col-span-3'>
+        <div className='!mb-10 flex flex-col gap-12 md:flex-row'>
           <ArticleList articles={filteredArticles} />
-        </div>
-        <div className='w-full md:col-span-2'>
           <div className='flex flex-col gap-6'>
             <CourseList
               courses={currentTab?.articles || []}
@@ -119,7 +101,7 @@ const TabsSkill = ({ tabs, newspaper }: Props) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

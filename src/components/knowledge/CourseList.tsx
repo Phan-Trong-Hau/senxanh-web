@@ -51,15 +51,6 @@ const CourseList = ({ courses, titleCourses }: Props) => {
       {currentCourses.map((course, idx) => (
         <CourseArticle key={idx} {...course} className='h-auto' />
       ))}
-      <div className='mt-4 flex justify-center'>
-        <Pagination
-          current={currentPage}
-          pageSize={pageSize}
-          total={courses.length}
-          onChange={handlePageChange}
-          showSizeChanger={false}
-        />
-      </div>
     </div>
   )
 }

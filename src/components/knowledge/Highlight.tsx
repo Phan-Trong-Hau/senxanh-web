@@ -27,26 +27,26 @@ const Highlight = ({ articles }: Props) => {
               src={thumbnail.url}
               alt={title}
               width='100%'
-              height={isFirst ? '380px' : '180px'}
-              className='w-full object-cover h-48 rounded-xl'
+              height={isFirst ? '480px' : '180px'}
+              className='h-48 w-full rounded-xl object-cover'
               preview={{
                 maskClassName: 'rounded-xl',
               }}
             />
           </Border>
         </div>
-        <div className='flex flex-col gap-2 p-4 pb-6 flex-1'>
+        <div className='flex flex-1 flex-col gap-2 p-4 pb-6'>
           <div
             onClick={handleClick}
             className={classNames(
-              'font-bold text-primary cursor-pointer',
-              isFirst ? 'text-4xl my-4' : 'text-lg',
+              'text-primary cursor-pointer font-bold',
+              isFirst ? 'my-4 text-4xl' : 'text-lg',
             )}>
             {title}
           </div>
           {isFirst && (
             <Tooltip title={description} placement='top'>
-              <p className='text-base text-gray-900 line-clamp-3'>{description}</p>
+              <p className='line-clamp-3 text-base text-gray-900'>{description}</p>
             </Tooltip>
           )}
         </div>
@@ -55,19 +55,13 @@ const Highlight = ({ articles }: Props) => {
   }
 
   return (
-    <div className='container'>
-      <div className='section'>
-        <div className='flex gap-10'>
-          <div className='basis-2/3 flex-1'>
-            {firstNews && renderNews(firstNews, true)}
-          </div>
-          {restNews.length > 0 && (
-            <div className='basis-1/3 flex flex-col'>
-              {restNews?.map(news => renderNews(news, false))}
-            </div>
-          )}
+    <div className='my-10 flex gap-10'>
+      <div className='flex-1 basis-2/3'>{firstNews && renderNews(firstNews, true)}</div>
+      {restNews.length > 0 && (
+        <div className='flex basis-1/3 flex-col'>
+          {restNews?.map(news => renderNews(news, false))}
         </div>
-      </div>
+      )}
     </div>
   )
 }

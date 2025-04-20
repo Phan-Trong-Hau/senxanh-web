@@ -34,19 +34,19 @@ const KnowledgeArticle = ({ title, description, thumbnail, className }: Article)
 
   return (
     <div className={classNames('w-full', className)}>
-      <div className='flex h-full max-h-[120px] items-center gap-4 px-2'>
+      <div className='flex h-full items-center gap-4 px-2'>
         <Border radius={12} className='shrink-0'>
           <Image
             src={thumbnail.url}
             alt={title}
-            width={140}
-            height={100}
+            width={240}
+            height={140}
             className='rounded-xl object-cover'
             preview={{ maskClassName: 'rounded-xl' }}
           />
         </Border>
 
-        <div className='flex h-full flex-1 flex-col items-start justify-between gap-3'>
+        <div className='flex h-full flex-1 flex-col items-start gap-3'>
           <Tooltip title={title}>
             <div
               onClick={handleClick}
@@ -55,7 +55,9 @@ const KnowledgeArticle = ({ title, description, thumbnail, className }: Article)
             </div>
           </Tooltip>
           <Tooltip title={description}>
-            <p className='line-clamp-2 text-base text-gray-800'>{description}</p>
+            <p className='line-clamp-3 text-base text-gray-800 md:text-lg'>
+              {description}
+            </p>
           </Tooltip>
         </div>
       </div>
