@@ -59,6 +59,7 @@ ol {
     padding: 0 1rem !important;
     max-width: 640px;
   }
+
   .section {
     margin: 3rem 0;
   }
@@ -72,6 +73,7 @@ ol {
   .mobile-only {
     display: block;
   }
+
   .desktop-only {
     display: none;
   }
@@ -84,7 +86,7 @@ ol {
   background-clip: padding-box;
 }
 
-.border-primary > div {
+.border-primary>div {
   position: relative;
   z-index: 1;
   background-color: var(--border-background-color, #fff);
@@ -118,15 +120,15 @@ ol {
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #0097b2, #7ed957);
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
+  background: linear-gradient(90deg, #0097b2, #7ed957) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
   border-radius: 30px;
-  font-weight: 700;
-  width: fit-content;
+  font-weight: 700 !important;
+  width: fit-content !important;
 }
 
 .btn-primary-header {
@@ -152,6 +154,17 @@ ol {
   background: linear-gradient(90deg, #7ed957, #7ed957) !important;
 }
 
+.btn-border {
+  background: transparent !important;
+  color: var(--secondary) !important;
+  border: 2px solid var(--primary) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  border-radius: 30px;
+  font-weight: 700 !important;
+}
+
 .ant-carousel .slick-arrow {
   opacity: 1 !important;
   width: 20px !important;
@@ -164,6 +177,7 @@ ol {
   width: 20px !important;
   height: 20px !important;
 }
+
 .ant-carousel .slick-prev {
   inset-inline-start: -32px !important;
 }
@@ -186,7 +200,7 @@ ol {
   transform: rotate(180deg) !important;
 }
 
-.menu-items > li::after {
+.menu-items>li::after {
   bottom: 12px !important;
   border-bottom-width: 0px !important;
   transition: all 0.3s ease-in-out !important;
@@ -196,8 +210,8 @@ ol {
   border-radius: 2px;
 }
 
-.menu-items > .ant-menu-submenu-selected::after,
-.menu-items > .ant-menu-item-active::after,
-.menu-items > .ant-menu-item-selected::after {
+.menu-items>.ant-menu-submenu-selected::after,
+.menu-items>.ant-menu-item-active::after,
+.menu-items>.ant-menu-item-selected::after {
   opacity: 1;
 }

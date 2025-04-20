@@ -1,11 +1,16 @@
-import Homepage from '@/components/homepage'
+import KnowledgePage from '@/components/knowledge'
 import fetchAPI from '@/utils/fetchApi'
 
 const Home = async () => {
-  const homepage = await fetchAPI({
-    path: '/homepage',
+  const knowledge = await fetchAPI({
+    path: '/knowledge-page',
   })
-  return <Homepage homepage={homepage} />
+
+  const newspaper = await fetchAPI({
+    path: '/newspapers',
+  })
+
+  return <KnowledgePage knowledge={knowledge} newspaper={newspaper} />
 }
 
 export default Home
