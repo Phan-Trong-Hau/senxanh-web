@@ -1,9 +1,8 @@
 'use client'
 
-import { Button } from 'antd'
-import classNames from 'classnames'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { Spin } from 'antd'
+import { useSearchParams } from 'next/navigation'
+import { Suspense, useEffect, useState } from 'react'
 
 import { Asset } from '@/utils/type'
 
@@ -56,8 +55,7 @@ type Props = {
   newspaper: any
 }
 
-const TabsSkill = ({ tabs, newspaper }: Props) => {
-  const router = useRouter()
+const TabsSkillContent = ({ tabs }: Props) => {
   const searchParams = useSearchParams()
   const activeTabKey = searchParams.get('tab') || tabs[0]?.key
   const currentTab = tabs.find(tab => tab.key === activeTabKey)
@@ -74,33 +72,35 @@ const TabsSkill = ({ tabs, newspaper }: Props) => {
     setFilteredArticles(filtered)
   }
 
-  const handleTabClick = (key: string) => {
-    const params = new URLSearchParams(Array.from(searchParams.entries()))
-    params.set('tab', key)
-    router.replace(`?${params.toString()}`)
-  }
-
   return (
-    <div className='container !mb-4'>
-      <div className='section'>
-        <Search newsList={currentTab?.articles || []} onSearch={handleSearch} />
+    <div className='section'>
+      <Search newsList={currentTab?.articles || []} onSearch={handleSearch} />
 
-        <Highlight articles={currentTab?.highlightArticles || []} />
+      <Highlight articles={currentTab?.highlightArticles || []} />
 
-        <div className='!mb-10 flex flex-col gap-12 md:flex-row'>
-          <ArticleList articles={filteredArticles} />
-          <div className='flex flex-col gap-6'>
-            <CourseList
-              courses={currentTab?.articles || []}
-              titleCourses={currentTab?.titleArticles}
-            />
-            <CourseList
-              courses={currentTab?.courses || []}
-              titleCourses={currentTab?.titleCourses}
-            />
-          </div>
+      <div className='!mb-10 flex flex-col gap-12 md:flex-row'>
+        <ArticleList articles={filteredArticles} />
+        <div className='flex flex-col gap-6'>
+          <CourseList
+            courses={currentTab?.articles || []}
+            titleCourses={currentTab?.titleArticles}
+          />
+          <CourseList
+            courses={currentTab?.courses || []}
+            titleCourses={currentTab?.titleCourses}
+          />
         </div>
       </div>
+    </div>
+  )
+}
+
+const TabsSkill = (props: Props) => {
+  return (
+    <div className='container !mb-4'>
+      <Suspense fallback={<Spin size='large' />}>
+        <TabsSkillContent {...props} />
+      </Suspense>
     </div>
   )
 }
