@@ -1,4 +1,5 @@
 import NewsListPage from '@/components/news'
+import { ArticleTypeReverse } from '@/utils/constant'
 import fetchAPI from '@/utils/fetchApi'
 
 const News = async () => {
@@ -8,6 +9,13 @@ const News = async () => {
 
   const newsList = await fetchAPI({
     path: '/newspapers',
+    urlParamsObject: {
+      filters: {
+        type: {
+          $eq: ArticleTypeReverse.news,
+        },
+      },
+    },
   })
 
   return (

@@ -2,8 +2,10 @@
 
 import { App, Image, Tooltip } from 'antd'
 import classNames from 'classnames'
+import { get } from 'http'
 import { useRouter } from 'next/navigation'
 
+import { getURLPageSlugWithType } from '@/utils/handle'
 import { Asset } from '@/utils/type'
 
 import Border from '../Custom/Border'
@@ -14,21 +16,45 @@ type Article = {
   thumbnail: Asset
   link: string
   className?: string
+  url?: string
+  slug?: string
+  type?: string
 }
 
-const Article = ({ title, description, thumbnail, link, className }: Article) => {
+const Article = ({
+  title,
+  description,
+  thumbnail,
+  link,
+  className,
+  url,
+  slug,
+  type,
+}: Article) => {
   const router = useRouter()
   const { message } = App.useApp()
 
   const handleClick = () => {
-    // router.push(link);
+    if (url) {
+      window.open(url, '_blank')
+      return
+    }
+
+    if (slug && type) {
+      router.push(getURLPageSlugWithType({ type, slug }))
+      return
+    }
+
+    // if (link) {
+    //   router.push(link)
+    // }
     message.info('Khóa học sẽ sớm ra mắt, vui lòng đợi trong thời gian sắp tới.')
   }
 
   return (
     <div className={classNames('h-[400px]', className)}>
       <Border
-        className='flex flex-col gap-4 h-full'
+        className='flex h-full flex-col gap-4'
         classNameChildren='h-full flex flex-col'
         radius={18}>
         <div className='p-2 pb-0'>
@@ -38,26 +64,26 @@ const Article = ({ title, description, thumbnail, link, className }: Article) =>
               alt={title}
               width='100%'
               height='180px'
-              className='w-full object-cover h-48 rounded-xl'
+              className='h-48 w-full rounded-xl object-cover'
               preview={{
                 maskClassName: 'rounded-xl',
               }}
             />
           </Border>
         </div>
-        <div className='flex flex-col gap-2 p-4 pb-6 flex-1'>
+        <div className='flex flex-1 flex-col gap-2 p-4 pb-6'>
           <Tooltip title={title}>
             <div
               onClick={handleClick}
-              className='font-bold text-lg text-primary cursor-pointer line-clamp-2'>
+              className='text-primary line-clamp-2 cursor-pointer text-lg font-bold'>
               {title}
             </div>
           </Tooltip>
           <Tooltip title={description}>
-            <p className='text-base text-gray-900 line-clamp-3'>{description}</p>
+            <p className='line-clamp-3 text-base text-gray-900'>{description}</p>
           </Tooltip>
           <div
-            className='text-center text-secondary cursor-pointer font-bold mt-auto'
+            className='text-secondary mt-auto cursor-pointer text-center font-bold'
             onClick={handleClick}>
             Tìm hiểu thêm
           </div>

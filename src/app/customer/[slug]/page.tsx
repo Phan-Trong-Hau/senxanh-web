@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 
 import Newspaper from '@/components/newspaper'
+import { ArticleTypeReverse } from '@/utils/constant'
 import fetchAPI from '@/utils/fetchApi'
 
 interface PageProps {
@@ -23,6 +24,9 @@ const CustomerDetail = async ({ params }: PageProps) => {
       filters: {
         slug: {
           $eq: slug,
+        },
+        type: {
+          $eq: ArticleTypeReverse.customer,
         },
       },
     },

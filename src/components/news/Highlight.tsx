@@ -1,8 +1,10 @@
 'use client'
 
-import { Image, Tooltip } from 'antd'
+import { App, Image, Tooltip } from 'antd'
 import classNames from 'classnames'
 import { useRouter } from 'next/navigation'
+
+import { getURLPageSlugWithType } from '@/utils/handle'
 
 import Border from '../common/Custom/Border'
 
@@ -11,13 +13,27 @@ type Props = {
 }
 
 const Highlight = ({ newsList }: Props) => {
+  const { message } = App.useApp()
   const router = useRouter()
   const firstNews = newsList?.[0]
-  const restNews = newsList?.concat(newsList)
+  const restNews = newsList?.slice(1)
 
-  const renderNews = ({ thumbnail, title, description, slug }: any, isFirst: boolean) => {
+  const renderNews = (
+    { thumbnail, title, description, slug, url, type }: any,
+    isFirst: boolean,
+  ) => {
     const handleClick = () => {
-      router.push(`/news/${slug}`)
+      if (url) {
+        window.open(url, '_blank')
+        return
+      }
+
+      if (slug) {
+        router.push(getURLPageSlugWithType({ type, slug }))
+        return
+      }
+
+      message.info('Bài viết đang cập nhật.')
     }
     return (
       <>
@@ -28,25 +44,25 @@ const Highlight = ({ newsList }: Props) => {
               alt={title}
               width='100%'
               height={isFirst ? '380px' : '180px'}
-              className='w-full object-cover h-48 rounded-xl'
+              className='h-48 w-full rounded-xl object-cover'
               preview={{
                 maskClassName: 'rounded-xl',
               }}
             />
           </Border>
         </div>
-        <div className='flex flex-col gap-2 p-4 pb-6 flex-1'>
+        <div className='flex flex-1 flex-col gap-2 p-4 pb-6'>
           <div
             onClick={handleClick}
             className={classNames(
-              'font-bold text-primary cursor-pointer',
-              isFirst ? 'text-4xl my-4' : 'text-lg',
+              'text-primary cursor-pointer font-bold',
+              isFirst ? 'my-4 text-4xl' : 'text-lg',
             )}>
             {title}
           </div>
           {isFirst && (
             <Tooltip title={description} placement='top'>
-              <p className='text-base text-gray-900 line-clamp-3'>{description}</p>
+              <p className='line-clamp-3 text-base text-gray-900'>{description}</p>
             </Tooltip>
           )}
           <div className='text-secondary cursor-pointer font-bold' onClick={handleClick}>
@@ -61,10 +77,10 @@ const Highlight = ({ newsList }: Props) => {
     <div className='container'>
       <div className='section'>
         <div className='flex gap-10'>
-          <div className='basis-2/3 flex-1'>
+          <div className='flex-1 basis-2/3'>
             {firstNews && renderNews(firstNews, true)}
           </div>
-          <div className='basis-1/3 flex flex-col'>
+          <div className='flex basis-1/3 flex-col'>
             {restNews?.map(news => renderNews(news, false))}
           </div>
         </div>

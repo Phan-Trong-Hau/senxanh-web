@@ -1,6 +1,6 @@
 'use client'
 
-import { Pagination } from 'antd'
+import { Empty, Pagination } from 'antd'
 import { useEffect, useState } from 'react'
 
 import Article from '../common/Article'
@@ -12,34 +12,18 @@ type Props = {
 }
 
 const ListNews = ({ title, newsList }: Props) => {
-  const list = newsList
-    ?.concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
-    .concat(newsList)
+  const list = newsList || []
 
   const pageSize = 6
   const [articles, setArticles] = useState<any[]>(list.slice(0, pageSize))
   const [currentPage, setCurrentPage] = useState(1)
-  const [filteredList, setFilteredList] = useState<any[]>(list) // Danh sách sau khi lọc
+  const [filteredList, setFilteredList] = useState<any[]>(list)
 
-  // Xử lý khi nhận danh sách lọc từ Search
   const handleSearch = (filteredNews: any[]) => {
     setFilteredList(filteredNews)
-    setCurrentPage(1) // Reset về trang 1 khi tìm kiếm
+    setCurrentPage(1)
   }
 
-  // Cập nhật articles khi filteredList hoặc currentPage thay đổi
   useEffect(() => {
     const startIndex = (currentPage - 1) * pageSize
     const endIndex = startIndex + pageSize
@@ -79,9 +63,7 @@ const ListNews = ({ title, newsList }: Props) => {
             />
           </div>
         ) : (
-          <div className='mt-10 text-center text-gray-500 italic'>
-            Không tìm thấy kết quả phù hợp.
-          </div>
+          <Empty description='Không tìm thấy kết quả phù hợp.' />
         )}
       </div>
     </div>

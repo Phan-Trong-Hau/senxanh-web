@@ -1,9 +1,10 @@
 'use client'
 
-import { Image, Tooltip } from 'antd'
+import { App, Image, Tooltip } from 'antd'
 import classNames from 'classnames'
 import { useRouter } from 'next/navigation'
 
+import { getURLPageSlugWithType } from '@/utils/handle'
 import { Asset } from '@/utils/type'
 
 import Border from '../Custom/Border'
@@ -12,16 +13,33 @@ type Article = {
   id: number
   title: string
   description: string
-  slug: string
+  slug?: string
   thumbnail: Asset
   className?: string
+  url?: string
+  type?: string
+  link?: string
 }
 
-const CourseArticle = ({ title, thumbnail, className }: Article) => {
+const CourseArticle = ({ title, thumbnail, className, url, slug, type }: Article) => {
   const router = useRouter()
+  const { message } = App.useApp()
 
   const handleClick = () => {
-    // router.push(link)
+    if (url) {
+      window.open(url, '_blank')
+      return
+    }
+
+    if (slug && type) {
+      router.push(getURLPageSlugWithType({ type, slug }))
+      return
+    }
+
+    // if (link) {
+    //   router.push(link)
+    // }
+    message.info('Khóa học sẽ sớm ra mắt, vui lòng đợi trong thời gian sắp tới.')
   }
 
   return (

@@ -1,7 +1,6 @@
 'use client'
 
 import ListArticle from '../common/Article/List'
-import Search from '../common/Custom/Search'
 import Highlight from './Highlight'
 import ListNews from './ListNews'
 
@@ -10,20 +9,24 @@ type Props = {
 }
 
 const NewsListPage: React.FC<Props> = ({ news }) => {
-  const { highlightNewspapers, newsList } = news
+  const { highlightNewspapers, highlightCustomers, newsList, title, groupedCourses } =
+    news
+
+  const highlightNews =
+    highlightNewspapers?.length > 0 ? highlightNewspapers : highlightCustomers
 
   return (
-    <div className='pt-10'>
-      <Highlight newsList={highlightNewspapers} />
+    <>
+      <Highlight newsList={highlightNews} />
 
-      <ListNews newsList={newsList} title='Tất cả bài viết' />
+      <ListNews newsList={newsList} title={title} />
 
       <ListArticle
-        title='Các khóa học dành cho bạn'
-        articles={[...newsList, ...newsList, ...newsList]}
+        title={groupedCourses.title}
+        articles={groupedCourses.courses}
         path='/courses'
       />
-    </div>
+    </>
   )
 }
 
