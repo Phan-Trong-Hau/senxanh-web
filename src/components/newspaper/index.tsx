@@ -2,7 +2,8 @@
 
 import { Breadcrumb } from 'antd'
 
-import ListArticle from '../common/Article/List'
+import { getURLPageWithType } from '@/utils/handle'
+
 import SectionCTA from '../common/SectionCTA'
 import Content from './Content'
 
@@ -15,10 +16,6 @@ const items = [
     title: 'Trang chủ',
     href: '/',
   },
-  {
-    title: 'Tin tức',
-    href: '/news',
-  },
 ]
 
 const Newspaper: React.FC<Props> = ({ news }) => {
@@ -30,6 +27,10 @@ const Newspaper: React.FC<Props> = ({ news }) => {
           items={[
             ...items,
             {
+              title: news?.type,
+              href: getURLPageWithType(news?.type),
+            },
+            {
               title: news?.title,
             },
           ]}
@@ -40,7 +41,7 @@ const Newspaper: React.FC<Props> = ({ news }) => {
 
       <SectionCTA title='Cùng con rèn luyện kỹ năng sống ngay hôm nay Khai phá và chinh phục các giới hạn bản thân' />
 
-      <ListArticle
+      {/* <ListArticle
         title='Các bài viết liên quan'
         articles={[news, news, news, news, news]}
         path='/news'
@@ -50,7 +51,7 @@ const Newspaper: React.FC<Props> = ({ news }) => {
         title='Các khóa học dành cho bạn'
         articles={[news, news, news, news, news]}
         path='/courses'
-      />
+      /> */}
     </>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { Spin } from 'antd'
+import { Empty, Spin } from 'antd'
 import { useSearchParams } from 'next/navigation'
 import { Suspense, useEffect, useState } from 'react'
 
@@ -55,18 +55,12 @@ type Props = {
   newspaper: any
 }
 
-const TabsSkillContent = ({ tabs }: Props) => {
+const TabsSkillContent = ({ tabs, newspaper }: Props) => {
   const searchParams = useSearchParams()
   const activeTabKey = searchParams.get('tab') || tabs[0]?.key
-  const currentTab = tabs.find(tab => tab.key === activeTabKey)
+  const currentTab = tabs.find(tab => tab.key === activeTabKey) ?? tabs[0]
 
-  const [filteredArticles, setFilteredArticles] = useState<Article[]>(
-    currentTab?.articles || [],
-  )
-
-  useEffect(() => {
-    setFilteredArticles(currentTab?.articles || [])
-  }, [currentTab])
+  const [filteredArticles, setFilteredArticles] = useState<Article[]>(newspaper || [])
 
   const handleSearch = (filtered: Article[]) => {
     setFilteredArticles(filtered)
@@ -74,12 +68,16 @@ const TabsSkillContent = ({ tabs }: Props) => {
 
   return (
     <div className='section'>
-      <Search newsList={currentTab?.articles || []} onSearch={handleSearch} />
-
       <Highlight articles={currentTab?.highlightArticles || []} />
+      <Search newsList={newspaper} onSearch={handleSearch} />
 
-      <div className='!mb-10 flex flex-col gap-12 md:flex-row'>
-        <ArticleList articles={filteredArticles} />
+      <div className='mt-16 !mb-10 flex flex-col gap-12 md:flex-row'>
+        {filteredArticles.length === 0 ? (
+          <Empty className='w-full' description='Không tìm thấy kết quả nào' />
+        ) : (
+          <ArticleList articles={filteredArticles} />
+        )}
+
         <div className='flex flex-col gap-6'>
           <CourseList
             courses={currentTab?.articles || []}

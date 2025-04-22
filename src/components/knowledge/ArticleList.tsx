@@ -28,24 +28,6 @@ type Props = {
 }
 
 const ArticleList = ({ articles }: Props) => {
-  articles = articles
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-    .concat(articles)
-
   const [currentPage, setCurrentPage] = useState(1)
   const pageSize = 10
 

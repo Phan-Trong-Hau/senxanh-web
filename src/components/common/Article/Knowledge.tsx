@@ -25,11 +25,29 @@ type Article = {
   className?: string
 }
 
-const KnowledgeArticle = ({ title, description, thumbnail, className }: Article) => {
+const KnowledgeArticle = ({
+  title,
+  description,
+  thumbnail,
+  className,
+  slug,
+  url,
+}: Article) => {
+  const { message } = App.useApp()
   const router = useRouter()
 
   const handleClick = () => {
-    // router.push(link)
+    if (url) {
+      window.open(url, '_blank')
+      return
+    }
+
+    if (slug) {
+      router.push(`/knowledge/${slug}`)
+      return
+    }
+
+    message.info('Bài viết đang cập nhật.')
   }
 
   return (
