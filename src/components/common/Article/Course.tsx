@@ -21,9 +21,16 @@ type Article = {
   link?: string
 }
 
-const CourseArticle = ({ title, thumbnail, className, url, slug, type }: Article) => {
+const CourseArticle = ({
+  title,
+  thumbnail,
+  className,
+  url,
+  slug,
+  type,
+  link,
+}: Article) => {
   const router = useRouter()
-  const { message } = App.useApp()
 
   const handleClick = () => {
     if (url) {
@@ -36,10 +43,9 @@ const CourseArticle = ({ title, thumbnail, className, url, slug, type }: Article
       return
     }
 
-    // if (link) {
-    //   router.push(link)
-    // }
-    message.info('Khóa học sẽ sớm ra mắt, vui lòng đợi trong thời gian sắp tới.')
+    if (link) {
+      router.push(link)
+    }
   }
 
   return (

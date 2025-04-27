@@ -24,7 +24,7 @@ const CourseList = ({ courses, titleCourses }: Props) => {
   return (
     <div className='flex w-full flex-col justify-start gap-6'>
       <h2 className='text-primary text-left text-2xl !font-bold'>{titleCourses}</h2>
-      {courses.map((course, idx) => (
+      {courses?.map((course, idx) => (
         <CourseArticle key={idx} {...course} className='h-auto' />
       ))}
     </div>
