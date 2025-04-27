@@ -32,7 +32,6 @@ const Article = ({
   type,
 }: Article) => {
   const router = useRouter()
-  const { message } = App.useApp()
 
   const handleClick = () => {
     if (url) {
@@ -45,10 +44,9 @@ const Article = ({
       return
     }
 
-    // if (link) {
-    //   router.push(link)
-    // }
-    message.info('Khóa học sẽ sớm ra mắt, vui lòng đợi trong thời gian sắp tới.')
+    if (link) {
+      router.push(link)
+    }
   }
 
   return (

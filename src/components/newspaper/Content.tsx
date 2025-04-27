@@ -7,7 +7,7 @@ type Props = {
   content: any
 }
 
-const options = {
+export const OPTIONS_RICK_TEXT = {
   h1: ({ node, ...props }: any) => {
     return (
       <h1
@@ -53,7 +53,7 @@ const Content = ({ content }: Props) => {
     <div className='container'>
       <div className='section !mt-10'>
         <Markdown
-          components={options}
+          components={OPTIONS_RICK_TEXT}
           className='mx-auto max-w-[950px] text-lg font-normal'
           content={content}
         />
