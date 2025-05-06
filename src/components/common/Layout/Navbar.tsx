@@ -1,10 +1,10 @@
 'use client'
 
-import { Button, Drawer, Flex, Menu } from 'antd'
+import { Button, Drawer, Flex, Menu, Spin } from 'antd'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 
 import { MenuOutlined } from '@ant-design/icons'
 
@@ -57,7 +57,7 @@ const routes = [
   },
 ]
 
-const Navbar = () => {
+const NavigationContent = () => {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const [pageActive, setPageActive] = useState<string>('')
@@ -68,7 +68,7 @@ const Navbar = () => {
       const tab = searchParams.get('tab') ?? 'skills'
       setPageActive('/knowledge?tab=' + tab)
     } else setPageActive(`/${pathname.split('/')[1]}`)
-  }, [pathname])
+  }, [pathname, searchParams])
 
   return (
     <Flex justify='space-between' align='center' className='container'>
@@ -170,6 +170,19 @@ const Navbar = () => {
         </div>
       </Drawer>
     </Flex>
+  )
+}
+
+const Navbar = () => {
+  return (
+    <Suspense
+      fallback={
+        <Flex justify='space-between' align='center' className='container'>
+          <Spin size='large' />
+        </Flex>
+      }>
+      <NavigationContent />
+    </Suspense>
   )
 }
 
