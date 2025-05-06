@@ -1,5 +1,6 @@
 'use client'
 
+import ListArticle from '../common/Article/List'
 import SectionCTA from '../common/SectionCTA'
 import AboutUs from './AboutUs'
 import FAQs from './FAQ'
@@ -11,7 +12,7 @@ type Props = {
 }
 
 const Homepage: React.FC<Props> = ({ homepage }) => {
-  const { heroBanner, aboutUs, favoriteCourses, FAQsSection, CTASection } =
+  const { heroBanner, aboutUs, favoriteCourses, FAQsSection, CTASection, articles } =
     homepage?.data || {}
 
   return (
@@ -21,6 +22,18 @@ const Homepage: React.FC<Props> = ({ homepage }) => {
       <AboutUs {...aboutUs} />
 
       <FavoriteCourses {...favoriteCourses} />
+
+      {articles &&
+        articles?.map((article: any, index: number) => (
+          <ListArticle
+            key={index}
+            title={article.title}
+            highlightTitle={article.highlightTitle}
+            articles={article.newspapers}
+            path={'/news'}
+            id={article.key}
+          />
+        ))}
 
       <FAQs {...FAQsSection} />
 

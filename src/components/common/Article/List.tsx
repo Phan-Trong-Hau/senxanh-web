@@ -14,12 +14,13 @@ type ArticleType = {
 
 type Props = {
   title: string
+  highlightTitle?: string
   articles: ArticleType[]
   path: string
   id?: string
 }
 
-const ListArticle = ({ title, articles, path, id }: Props) => {
+const ListArticle = ({ title, highlightTitle, articles, path, id }: Props) => {
   const settings = {
     slidesToShow: 3,
     responsive: [
@@ -31,12 +32,20 @@ const ListArticle = ({ title, articles, path, id }: Props) => {
   return (
     <div className='container scroll-mt-28' id={id}>
       <section className='section'>
-        <h2 className='text-2xl md:text-4xl text-primary !font-bold text-center'>
-          {title}
-        </h2>
+        {highlightTitle ? (
+          <h2 className='text-center text-2xl !font-bold md:text-4xl'>
+            <span className='text-secondary'>{title}</span>
+            <br />
+            <span className='text-primary mt-1 inline-block'>{highlightTitle}</span>
+          </h2>
+        ) : (
+          <h2 className='text-primary text-center text-2xl !font-bold md:text-4xl'>
+            {title}
+          </h2>
+        )}
         <div className='mt-4 md:mt-8'>
           <Carousel {...settings}>
-            {articles.map(article => (
+            {articles?.map(article => (
               <Article
                 key={article.slug}
                 {...article}
