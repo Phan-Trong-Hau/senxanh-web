@@ -3,6 +3,7 @@
 import { Button, Drawer, Flex, Menu } from 'antd'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { MenuOutlined } from '@ant-design/icons'
@@ -57,12 +58,17 @@ const routes = [
 ]
 
 const Navbar = () => {
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
   const [pageActive, setPageActive] = useState<string>('')
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false)
 
   useEffect(() => {
-    setPageActive(window.location.pathname)
-  }, [])
+    if (pathname.includes('/knowledge')) {
+      const tab = searchParams.get('tab') ?? 'skills'
+      setPageActive('/knowledge?tab=' + tab)
+    } else setPageActive(`/${pathname.split('/')[1]}`)
+  }, [pathname])
 
   return (
     <Flex justify='space-between' align='center' className='container'>
