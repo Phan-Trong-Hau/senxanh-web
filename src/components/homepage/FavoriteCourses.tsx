@@ -26,19 +26,19 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
   return (
     <div className='container'>
       <section className='section'>
-        <h2 className='!font-bold text-2xl md:text-4xl text-center'>
+        <h2 className='text-center text-2xl !font-bold md:text-4xl'>
           <span className='text-secondary'>{title}</span>
           <br />
-          <span className='text-primary inline-block mt-1'>{highlightTitle}</span>
+          <span className='text-primary mt-1 inline-block'>{highlightTitle}</span>
         </h2>
         <div className='mt-3 md:mt-10'>
           <Carousel>
             {courses.map((course, index) => (
               <div
-                className='lg:!grid !flex flex-col-reverse md:grid-cols-2 gap-5 !px-5'
+                className='!flex flex-col-reverse gap-5 !px-5 md:grid-cols-12 lg:!grid'
                 key={index}>
-                <div className='flex flex-col gap-2 md:gap-6'>
-                  <div className='flex justify-center'>
+                <div className='col-span-7 flex flex-col gap-2 md:gap-6'>
+                  <div className='flex justify-center gap-2'>
                     <Image
                       layout='fixed'
                       width={30}
@@ -46,21 +46,21 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
                       objectFit='contain'
                       src='https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/icon_0142af1f48.png'
                       alt={course.title}
-                      className='object-cover h-[35px]'
+                      className='h-[35px] object-cover'
                     />
-                    <h3 className='font-bold mt-4 text-lg md:text-3xl text-primary text-center'>
+                    <h3 className='text-primary mt-4 text-center text-lg font-bold md:text-3xl'>
                       {course.title}
                     </h3>
                   </div>
-                  <div className='relative text-[15px] h-full text-center flex justify-center items-center p-4 text-white overflow-hidden'>
+                  <div className='relative flex h-full items-center justify-center overflow-hidden p-4 text-center text-[15px] text-white'>
                     <img
                       src='https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/bg_favorite_courses_61ee86341a.png'
                       alt={course.title}
-                      className='absolute top-0 right-0 w-full h-full'
+                      className='absolute top-0 right-0 h-full w-full'
                     />
                     <Markdown
                       content={course.description}
-                      className='p-3 md:p-5 pb-6 md:pb-10 z-10 relative md:text-base text-xs'
+                      className='relative z-10 p-3 pb-6 text-xs md:p-5 md:pb-10 md:text-base'
                     />
                   </div>
                   {course.cta?.href && (
@@ -69,12 +69,12 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
                     </Link>
                   )}
                 </div>
-                <div className='flex justify-center lg:justify-end'>
+                <div className='col-span-5 flex justify-center lg:justify-center'>
                   <Border className='h-fit'>
                     <Img
                       src={course.heroShot.url}
                       alt={course.title}
-                      className='object-cover max-h-[400px] rounded-lg leading-0'
+                      className='max-h-[400px] rounded-lg object-cover leading-0'
                       preview={{
                         maskClassName: 'rounded-lg',
                       }}
