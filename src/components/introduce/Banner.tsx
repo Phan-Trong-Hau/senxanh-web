@@ -15,25 +15,25 @@ const Banner: React.FC<Props> = ({ title, highlightTitle, image, imageInMobile }
   return (
     <div className='container'>
       <section className='section'>
-        <h2 className='!font-bold text-2xl md:text-4xl text-center'>
+        <h2 className='text-center text-2xl !font-bold md:text-4xl'>
           <span className='text-primary'>{title}</span>
           <br />
-          <span className='text-secondary inline-block mt-1'>{highlightTitle}</span>
+          <span className='text-secondary mt-1 inline-block'>{highlightTitle}</span>
         </h2>
-        <div className='mt-3 md:mt-10 text-center mx-auto'>
+        <div className='mx-auto mt-3 text-center md:mt-10'>
           <Border>
             <Image
-              src={image.url}
+              src={image?.url}
               alt='banner'
-              className='w-full max-[768px]:hidden rounded-lg'
+              className='w-full rounded-lg max-[768px]:hidden'
               preview={{
                 maskClassName: 'rounded-lg',
               }}
             />
             <Image
-              src={imageInMobile.url}
+              src={imageInMobile?.url}
               alt='banner'
-              className='w-full md:hidden rounded-lg'
+              className='w-full rounded-lg md:hidden'
               preview={{
                 maskClassName: 'rounded-lg',
               }}

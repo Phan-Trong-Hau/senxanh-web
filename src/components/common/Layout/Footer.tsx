@@ -30,7 +30,7 @@ const Footer = ({ logo, social, contacts, copyright }: Props) => {
 
   return (
     <div className='container'>
-      <div className='flex md:flex-row flex-col justify-between gap-4 md:gap-20'>
+      <div className='flex flex-col justify-between gap-4 md:flex-row md:gap-20'>
         <div className='flex-1'>
           <Image
             src={logo?.url}
@@ -41,7 +41,7 @@ const Footer = ({ logo, social, contacts, copyright }: Props) => {
             className='w-[200px] object-cover'
           />
 
-          <div className='flex gap-4 mt-6'>
+          <div className='mt-6 flex gap-4'>
             {social?.map((social: any) => (
               <a
                 href={social.href}
@@ -49,33 +49,33 @@ const Footer = ({ logo, social, contacts, copyright }: Props) => {
                 rel='noopener noreferrer'
                 key={social.id}>
                 <Image
-                  src={social.icon.url}
+                  src={social.icon?.url}
                   alt='social'
                   width={social.icon.width}
                   height={social.icon.height}
                   layout='fixed'
-                  className='w-10 md:w-12 object-cover'
+                  className='w-10 object-cover md:w-12'
                 />
               </a>
             ))}
           </div>
-          <div className=' mt-6'>
+          <div className='mt-6'>
             {contacts?.map((contact: Contact) => (
               <p
                 key={contact.id}
-                className='text-primary font-bold text-base mb-1 md:mb-2'>
+                className='text-primary mb-1 text-base font-bold md:mb-2'>
                 {contact.text}
               </p>
             ))}
           </div>
         </div>
-        <div className='flex-1 max-w-[450px]'>
-          <div className='text-primary font-bold text-xl my-6'>LIÊN HỆ TƯ VẤN</div>
+        <div className='max-w-[450px] flex-1'>
+          <div className='text-primary my-6 text-xl font-bold'>LIÊN HỆ TƯ VẤN</div>
           <ContactForm form={form} />
         </div>
       </div>
       <Divider />
-      <div className='flex justify-between items-center my-6 text-sm text-gray-600'>
+      <div className='my-6 flex items-center justify-between text-sm text-gray-600'>
         <p>{copyright}</p>
       </div>
     </div>

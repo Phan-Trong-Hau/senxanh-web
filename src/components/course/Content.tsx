@@ -21,7 +21,7 @@ const Content = ({ contents }: Props) => {
             className={classNames('grid gap-10', { 'md:grid-cols-2': image })}>
             {image && isImageLeft && (
               <div className='mb-[18px] flex items-center justify-center'>
-                <Image className='object-contain' src={image.url} alt={image.name} />
+                <Image className='object-contain' src={image?.url} alt={image.name} />
               </div>
             )}
             <Markdown
@@ -31,7 +31,7 @@ const Content = ({ contents }: Props) => {
             />
             {image && !isImageLeft && (
               <div className='mb-[18px] flex items-center justify-center'>
-                <Image className='object-contain' src={image.url} alt={image.name} />
+                <Image className='object-contain' src={image?.url} alt={image.name} />
               </div>
             )}
           </div>

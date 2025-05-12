@@ -54,16 +54,16 @@ export default function CircleBubbles({ items }: Props) {
   return (
     <div
       className={classNames(
-        'relative w-full mx-auto max-w-4xl mt-12',
+        'relative mx-auto mt-12 w-full max-w-4xl',
         isMobile ? 'flex flex-col-reverse gap-6' : 'h-[330px]',
       )}>
       <div
         className={classNames(
-          'flex items-center justify-center text-center px-4',
+          'flex items-center justify-center px-4 text-center',
           !isMobile &&
-            'absolute left-1/2 top-1/2 -translate-x-1/2 p-6 pt-0 -translate-y-1/2 z-10 max-w-[370px]',
+            'absolute top-1/2 left-1/2 z-10 max-w-[370px] -translate-x-1/2 -translate-y-1/2 p-6 pt-0',
         )}>
-        <p className='text-sm md:text-base text-primary !mb-0'>
+        <p className='text-primary !mb-0 text-sm md:text-base'>
           {items[activeIndex].description}
         </p>
       </div>
@@ -72,7 +72,7 @@ export default function CircleBubbles({ items }: Props) {
         className={classNames(
           isMobile
             ? 'flex flex-wrap justify-center gap-6'
-            : 'w-full h-full relative mt-[100px]',
+            : 'relative mt-[100px] h-full w-full',
         )}>
         {items.map((item, index) => {
           const positionStyles = !isMobile ? calculatePosition(index, items.length) : {}
@@ -81,25 +81,25 @@ export default function CircleBubbles({ items }: Props) {
             <div
               key={item.name}
               className={classNames(
-                'transition-all duration-300 cursor-pointer',
-                activeIndex === index ? 'scale-110 z-20' : 'scale-100 hover:scale-105',
+                'cursor-pointer transition-all duration-300',
+                activeIndex === index ? 'z-20 scale-110' : 'scale-100 hover:scale-105',
                 !isMobile && 'absolute',
               )}
               style={positionStyles as any}
               onClick={() => setActiveIndex(index)}
               onMouseEnter={() => setActiveIndex(index)}>
-              <div className='flex flex-col gap-1 items-center'>
+              <div className='flex flex-col items-center gap-1'>
                 <Border className='h-fit' radius={999}>
                   <Image
                     loader={({ src }) => src}
-                    src={item.image.url}
+                    src={item.image?.url}
                     alt={item.name}
                     width={64}
                     height={64}
-                    className='rounded-full w-16 h-16'
+                    className='h-16 w-16 rounded-full'
                   />
                 </Border>
-                <p className='text-center font-bold text-sm text-secondary !mb-0'>
+                <p className='text-secondary !mb-0 text-center text-sm font-bold'>
                   {item.name}
                 </p>
               </div>

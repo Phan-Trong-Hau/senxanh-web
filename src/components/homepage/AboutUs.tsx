@@ -43,7 +43,7 @@ const AboutUs = ({ title, widgets }: Props) => {
                   onMouseLeave={() => setWidgetActive(widgets[3])}>
                   <Image
                     loader={({ src }) => src}
-                    src={widget.thumbnail.url}
+                    src={widget.thumbnail?.url}
                     alt='image'
                     layout='fixed'
                     objectFit='contain'

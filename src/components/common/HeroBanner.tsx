@@ -22,7 +22,7 @@ const HeroBanner: React.FC<Props> = ({
       {background && (
         <Image
           loader={({ src }) => src}
-          src={background.url}
+          src={background?.url}
           alt='hero banner'
           layout='fixed'
           width={background.width}
@@ -50,7 +50,7 @@ const HeroBanner: React.FC<Props> = ({
           <section className='section text-primary flex flex-col items-center justify-center gap-7.5'>
             <Image
               loader={({ src }) => src}
-              src={logo.url}
+              src={logo?.url}
               width={logo.width}
               height={logo.height}
               alt='logo sen xanh'

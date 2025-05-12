@@ -72,7 +72,7 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
                 <div className='col-span-5 flex justify-center lg:justify-center'>
                   <Border className='h-fit'>
                     <Img
-                      src={course.heroShot.url}
+                      src={course.heroShot?.url}
                       alt={course.title}
                       className='max-h-[400px] rounded-lg object-cover leading-0'
                       preview={{

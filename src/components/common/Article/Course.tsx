@@ -53,7 +53,7 @@ const CourseArticle = ({
       <div className='flex h-full flex-col items-start gap-4 px-2'>
         <Border radius={12} className='shrink-0'>
           <Image
-            src={thumbnail.url}
+            src={thumbnail?.url}
             alt={title}
             width={280}
             height={160}
