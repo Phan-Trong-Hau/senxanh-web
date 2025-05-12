@@ -29,7 +29,7 @@ export default async function fetchAPI({
     const populateRequest = isPopulate ? { pLevel: '5' } : {}
 
     const mergedParams = {
-      ..?.urlParamsObject,
+      ...urlParamsObject,
       ...populateRequest,
     }
 
