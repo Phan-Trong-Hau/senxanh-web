@@ -40,7 +40,7 @@ const Highlight = ({ newsList }: Props) => {
         <div className='p-2 pb-0'>
           <Border radius={12}>
             <Image
-              src={thumbnail.url}
+              src={thumbnail?.url}
               alt={title}
               width='100%'
               height={isFirst ? '380px' : '180px'}

@@ -4,7 +4,7 @@ const Banner = ({ image }: any) => {
   return (
     <div className='container'>
       <div className='section'>
-        <Image src={image.url} alt={image.name} />
+        <Image src={image?.url} alt={image.name} />
       </div>
     </div>
   )

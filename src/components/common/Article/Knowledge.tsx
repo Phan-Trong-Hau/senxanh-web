@@ -55,7 +55,7 @@ const KnowledgeArticle = ({
       <div className='flex h-full items-center gap-4 px-2'>
         <Border radius={12} className='shrink-0'>
           <Image
-            src={thumbnail.url}
+            src={thumbnail?.url}
             alt={title}
             width={240}
             height={140}

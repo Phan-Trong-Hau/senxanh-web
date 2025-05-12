@@ -38,18 +38,18 @@ const Benefits: React.FC<Props> = ({ title, highlightTitle, bubbles }) => {
   return (
     <div className='container overflow-hidden'>
       <section className='section !mt-0'>
-        <h2 className='text-2xl md:text-4xl !font-bold text-center'>
+        <h2 className='text-center text-2xl !font-bold md:text-4xl'>
           <span className='text-primary'>{title}</span>
           <br />
-          <span className='uppercase inline-block md:mt-1 lg:mt-2 text-secondary'>
+          <span className='text-secondary inline-block uppercase md:mt-1 lg:mt-2'>
             {highlightTitle}
           </span>
         </h2>
-        <div className={classNames('flex mt-10 flex-col gap-4')}>
+        <div className={classNames('mt-10 flex flex-col gap-4')}>
           {bubbles.map((bubble, index) => (
             <div
               key={bubble.caption}
-              className='flex gap-4 items-center'
+              className='flex items-center gap-4'
               style={{
                 transform: isLargeScreen
                   ? `translateX(calc(50% +  ${index * 70}px - 350px))`
@@ -58,14 +58,14 @@ const Benefits: React.FC<Props> = ({ title, highlightTitle, bubbles }) => {
               <Border className='h-fit w-fit shrink-0' radius={999}>
                 <Image
                   loader={({ src }) => src}
-                  src={bubble.image.url}
+                  src={bubble.image?.url}
                   alt={bubble.caption}
                   width={64}
                   height={64}
-                  className='rounded-full w-12 h-12 md:w-16 md:h-16'
+                  className='h-12 w-12 rounded-full md:h-16 md:w-16'
                 />
               </Border>
-              <p className='font-semibold text-base md:text-lg text-secondary !mb-0'>
+              <p className='text-secondary !mb-0 text-base font-semibold md:text-lg'>
                 {bubble.caption}
               </p>
             </div>

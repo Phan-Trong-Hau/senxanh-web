@@ -49,9 +49,9 @@ export default function HeroBanner({
 }: Props) {
   return (
     <>
-      <div className='relative overflow-hidden h-[180px] md:h-screen md:-top-16 box-border'>
+      <div className='relative box-border h-[180px] overflow-hidden md:-top-16 md:h-screen'>
         <Image
-          src={background.url}
+          src={background?.url}
           alt='background'
           layout='fill'
           objectFit='cover'
@@ -63,18 +63,18 @@ export default function HeroBanner({
           initial={{ x: '-30vw', y: '50vh', opacity: 0 }}
           animate={{ x: '0', y: '0', opacity: 1 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          src={heroShot.url}
+          src={heroShot?.url}
           alt='hero shot'
-          className='absolute w-[40%] top-3/5 md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-9'
+          className='absolute top-3/5 left-1/2 z-9 w-[40%] -translate-x-1/2 -translate-y-1/2 transform md:top-1/2'
         />
 
         <motion.img
           initial={{ y: '20vh', opacity: 0 }}
           animate={{ y: '0', opacity: 1 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          src={clouds[0].url}
+          src={clouds[0]?.url}
           alt='clouds'
-          className='absolute -bottom-1/6 scale-[1.1] w-screen'
+          className='absolute -bottom-1/6 w-screen scale-[1.1]'
         />
 
         {icons.map((icon, index) => (
@@ -83,29 +83,29 @@ export default function HeroBanner({
             initial={positionIcons[index].initial}
             animate={{ x: 0, y: 0, opacity: 1 }}
             transition={{ duration: 1.2, ease: 'easeOut' }}
-            src={icon.url}
+            src={icon?.url}
             alt='icon'
             className={classNames('absolute z-9', positionIcons[index].className)}
           />
         ))}
       </div>
       <div className='container text-center'>
-        <section className='section flex flex-col items-center justify-center text-primary'>
+        <section className='section text-primary flex flex-col items-center justify-center'>
           <Image
             loader={({ src }) => src}
-            src={logo.url}
+            src={logo?.url}
             width={logo.width}
             height={logo.height}
             alt='logo sen xanh'
             layout='fixed'
             objectFit='contain'
-            className='lg:w-[400px] md:w-[320px] w-[240px]'
+            className='w-[240px] md:w-[320px] lg:w-[400px]'
           />
 
-          <h1 className='text-xl md:text-2xl lg:text-4xl !font-bold !mt-6 md:!mt-10 !mb-4 md:!mb-8'>
+          <h1 className='!mt-6 !mb-4 text-xl !font-bold md:!mt-10 md:!mb-8 md:text-2xl lg:text-4xl'>
             <span>{title}</span>
             <br />
-            <span className='uppercase inline-block md:!mt-1 lg:!mt-2'>
+            <span className='inline-block uppercase md:!mt-1 lg:!mt-2'>
               {highlightTitle}
             </span>
           </h1>

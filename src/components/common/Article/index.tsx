@@ -58,7 +58,7 @@ const Article = ({
         <div className='p-2 pb-0'>
           <Border radius={12}>
             <Image
-              src={thumbnail.url}
+              src={thumbnail?.url}
               alt={title}
               width='100%'
               height='180px'

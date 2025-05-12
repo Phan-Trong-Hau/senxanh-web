@@ -17,13 +17,13 @@ const Partner: React.FC<Props> = ({ title, logo, partners }) => {
   return (
     <div className='container'>
       <section className='section'>
-        <h2 className='!font-bold text-2xl md:text-4xl text-center'>
+        <h2 className='text-center text-2xl !font-bold md:text-4xl'>
           <span className='text-primary'>{title}</span>
           <br />
-          <div className='flex mt-5 justify-center'>
+          <div className='mt-5 flex justify-center'>
             <Image
               loader={({ src }) => src}
-              src={logo.url}
+              src={logo?.url}
               width={logo.width}
               height={logo.height}
               alt='logo sen xanh'
@@ -33,22 +33,21 @@ const Partner: React.FC<Props> = ({ title, logo, partners }) => {
             />
           </div>
         </h2>
-        <div className='mt-6 md:mt-8 text-center mx-auto'>
-          <div className='flex items-center justify-center gap-4 md:gap-8 flex-wrap'>
+        <div className='mx-auto mt-6 text-center md:mt-8'>
+          <div className='flex flex-wrap items-center justify-center gap-4 md:gap-8'>
             {partners.map((partner, index) => (
               <a
                 href={partner.href}
                 target='_blank'
                 rel='noopener noreferrer'
-                key={index}
-              >
+                key={index}>
                 <Image
-                  src={partner.icon.url}
+                  src={partner.icon?.url}
                   alt='partner'
                   width={partner.icon.width}
                   height={partner.icon.height}
                   layout='fixed'
-                  className='w-10 md:w-14 object-cover'
+                  className='w-10 object-cover md:w-14'
                 />
               </a>
             ))}
