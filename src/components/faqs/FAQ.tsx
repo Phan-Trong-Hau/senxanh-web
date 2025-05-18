@@ -1,10 +1,11 @@
 'use client'
 
-import { Collapse, Pagination } from "antd";
-import Image from "next/image";
-import { useState } from "react";
+import { Collapse, Pagination } from 'antd'
+import Image from 'next/image'
+import { useState } from 'react'
 
-import Border from "../common/Custom/Border";
+import Border from '../common/Custom/Border'
+import Markdown from '../common/Custom/Markdown'
 
 type Props = {
   title: string
@@ -54,11 +55,11 @@ const FAQs = ({ title, faqs, allFaqs }: Props) => {
   }
 
   return (
-    <div className='container text-primary'>
+    <div className='text-primary container'>
       <section className='section'>
-        <h2 className='text-center !font-bold text-2xl md:text-4xl mb-8'>{title}</h2>
+        <h2 className='mb-8 text-center text-2xl !font-bold md:text-4xl'>{title}</h2>
 
-        <div className='max-w-[1024px] mx-auto'>
+        <div className='mx-auto max-w-[1024px]'>
           {currentFaqs.map((faq, index) => {
             const key = `${index}`
             const isOpen = Array.isArray(activeKey)
@@ -77,33 +78,39 @@ const FAQs = ({ title, faqs, allFaqs }: Props) => {
                   size='small'
                   expandIcon={() => null}
                   bordered={false}
-                  className='!bg-transparent'>
-                  <Collapse.Panel
-                    key={key}
-                    header={
-                      <div className='font-semibold text-lg cursor-pointer relative'>
-                        <div className='pr-10'>{faq.title}</div>
-                        <Image
-                          loader={({ src }) => src}
-                          src='https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/plus_icon_2ff4c8cafc.svg'
-                          alt='icon'
-                          width={20}
-                          height={20}
-                          className={`w-4 h-4 md:w-5 md:h-5 fill-[#1c74bc] absolute top-1/2 -translate-y-1/2 right-0 transition-transform duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}
-                          objectFit='contain'
+                  items={[
+                    {
+                      key: key,
+                      label: (
+                        <div className='relative cursor-pointer text-lg font-semibold'>
+                          <div className='pr-10'>{faq.title}</div>
+                          <Image
+                            loader={({ src }) => src}
+                            src='https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/plus_icon_2ff4c8cafc.svg'
+                            alt='icon'
+                            width={20}
+                            height={20}
+                            className={`absolute top-1/2 right-0 h-4 w-4 -translate-y-1/2 fill-[#1c74bc] transition-transform duration-300 md:h-5 md:w-5 ${isOpen ? 'rotate-45' : 'rotate-0'}`}
+                            objectFit='contain'
+                          />
+                        </div>
+                      ),
+                      children: (
+                        <Markdown
+                          content={faq.description}
+                          className='text-base [&_p]:mt-2 [&_p]:md:mt-3'
                         />
-                      </div>
-                    }
-                    showArrow={false}>
-                    <p className='text-base mt-2 pr-4 md:pr-10'>{faq.description}</p>
-                  </Collapse.Panel>
-                </Collapse>
+                      ),
+                    },
+                  ]}
+                  className='!bg-transparent'
+                />
               </Border>
             )
           })}
         </div>
 
-        <div className='mt-6 text-center flex justify-center'>
+        <div className='mt-6 flex justify-center text-center'>
           <Pagination
             current={currentPage}
             pageSize={faqPerPage}

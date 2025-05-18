@@ -35,10 +35,11 @@ const AboutUs = ({ title, widgets }: Props) => {
         <div className='mt-8 flex flex-col gap-5 md:gap-10 lg:mt-14 lg:flex-row'>
           <div className='grid basis-1/2 grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-2'>
             {widgets.map((widget, index) => (
-              <Link href={`/courses#${widget.key}`}>
+              <Link href={`/courses#${widget.key}`} key={index}>
                 <Border
                   key={index}
-                  className='h-fit cursor-pointer'
+                  className='h-[172px] cursor-pointer'
+                  classNameChildren='overflow-hidden relative'
                   onMouseEnter={() => setWidgetActive(widget)}
                   onMouseLeave={() => setWidgetActive(widgets[3])}>
                   <Image
@@ -49,9 +50,9 @@ const AboutUs = ({ title, widgets }: Props) => {
                     objectFit='contain'
                     width={widget.thumbnail.width}
                     height={widget.thumbnail.height}
-                    className='w-full rounded-lg'
+                    className='h-[168px] w-full rounded-lg'
                   />
-                  <div className='text-primary absolute bottom-2 w-full text-center text-base !leading-tight font-bold lg:px-6'>
+                  <div className='text-primary absolute bottom-0 w-full bg-gradient-to-b from-transparent to-white pt-5 pb-1 text-center text-base !leading-tight font-bold lg:px-6'>
                     {widget.label}
                   </div>
                 </Border>
