@@ -3,6 +3,7 @@
 import { App, Image, Tooltip } from 'antd'
 import classNames from 'classnames'
 import { useRouter } from 'next/navigation'
+import React from 'react'
 
 import { getURLPageSlugWithType } from '@/utils/handle'
 
@@ -36,7 +37,7 @@ const Highlight = ({ newsList }: Props) => {
       message.info('Bài viết đang cập nhật.')
     }
     return (
-      <>
+      <React.Fragment key={slug}>
         <div className='p-2 pb-0'>
           <Border radius={12}>
             <Image
@@ -69,7 +70,7 @@ const Highlight = ({ newsList }: Props) => {
             Xem thêm
           </div>
         </div>
-      </>
+      </React.Fragment>
     )
   }
 

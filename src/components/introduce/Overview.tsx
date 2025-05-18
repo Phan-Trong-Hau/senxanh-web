@@ -36,7 +36,7 @@ const Overview: React.FC<Props> = ({ title, highlightTitle, figures }) => {
                     maskClassName: 'rounded-lg',
                   }}
                 />
-                <div className='text-primary absolute bottom-2 w-full text-center text-base !leading-tight font-bold uppercase lg:px-6'>
+                <div className='text-primary absolute bottom-0 w-full rounded-b-lg bg-gradient-to-b from-transparent to-white pt-6 pb-1 text-center text-base !leading-tight font-bold uppercase lg:px-6'>
                   {figure.caption}
                 </div>
               </Border>
