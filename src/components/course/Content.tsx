@@ -11,7 +11,8 @@ type Props = {
 }
 
 const Content = ({ contents }: Props) => {
-  if (!contents) return null
+  if (!contents?.length) return null
+
   return (
     <div className='container'>
       <div className='section !mt-10'>
@@ -19,7 +20,7 @@ const Content = ({ contents }: Props) => {
           <div
             key={index}
             className={classNames('grid gap-10', { 'md:grid-cols-2': image })}>
-            {image && isImageLeft && (
+            {image?.url && isImageLeft && (
               <div className='mb-[18px] flex items-center justify-center'>
                 <Image className='object-contain' src={image?.url} alt={image.name} />
               </div>
@@ -29,7 +30,7 @@ const Content = ({ contents }: Props) => {
               className='text-lg font-normal'
               content={content}
             />
-            {image && !isImageLeft && (
+            {image?.url && !isImageLeft && (
               <div className='mb-[18px] flex items-center justify-center'>
                 <Image className='object-contain' src={image?.url} alt={image.name} />
               </div>
