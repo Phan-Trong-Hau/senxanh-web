@@ -20,7 +20,7 @@ const Contact = ({ contacts }: Props) => {
   return (
     <div className='fixed right-4 bottom-4 z-50 md:right-10 md:bottom-10'>
       <div className='flex flex-col gap-4 md:gap-5'>
-        {contacts.map((contact: Contact) => {
+        {contacts?.map((contact: Contact) => {
           if (!contact.icon?.url || !contact.href) return null
           return (
             <div key={contact.id}>
