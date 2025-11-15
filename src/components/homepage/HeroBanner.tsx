@@ -72,12 +72,12 @@ export default function HeroBanner({
           initial={{ y: '20vh', opacity: 0 }}
           animate={{ y: '0', opacity: 1 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          src={clouds[0]?.url}
+          src={clouds?.[0]?.url}
           alt='clouds'
           className='absolute -bottom-1/6 w-screen scale-[1.1]'
         />
 
-        {icons.map((icon, index) => (
+        {icons?.map((icon, index) => (
           <motion.img
             key={index}
             initial={positionIcons[index].initial}
