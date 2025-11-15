@@ -32,7 +32,12 @@ const ContactForm = ({
         path: '/datasets',
         options: {
           method: 'POST',
-          body: JSON.stringify({ data: values }),
+          body: JSON.stringify({
+            data: {
+              ...values,
+              source: window.location.href,
+            },
+          }),
         },
         isAuthenticated: false,
       })
