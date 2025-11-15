@@ -48,8 +48,8 @@ const AboutUs = ({ title, widgets }: Props) => {
                     alt='image'
                     layout='fixed'
                     objectFit='contain'
-                    width={widget.thumbnail.width}
-                    height={widget.thumbnail.height}
+                    width={widget.thumbnail?.width}
+                    height={widget.thumbnail?.height}
                     className='h-[168px] w-full rounded-lg'
                   />
                   <div className='text-primary absolute bottom-0 w-full bg-gradient-to-b from-transparent to-white pt-5 pb-1 text-center text-base !leading-tight font-bold lg:px-6'>
@@ -62,15 +62,15 @@ const AboutUs = ({ title, widgets }: Props) => {
           <div className='relative flex items-center justify-center text-center text-white lg:basis-1/2'>
             <img
               src='https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/background_widget_9a0433c462.png'
-              alt={widgetActive.title}
+              alt={widgetActive?.title}
               className='absolute top-0 right-0 h-full w-full'
             />
             <div className='relative z-10 mt-4 translate-x-4 px-12 pt-16 pb-10 md:translate-x-7 md:px-20 lg:px-12 lg:py-0'>
               <h3 className='text-base leading-tight font-bold uppercase md:text-xl'>
-                {widgetActive.title}
+                {widgetActive?.title}
               </h3>
               <Markdown
-                content={widgetActive.description}
+                content={widgetActive?.description}
                 className='text-xs leading-tight md:text-base [&_p]:mt-2 [&_p]:md:mt-3'
               />
             </div>
