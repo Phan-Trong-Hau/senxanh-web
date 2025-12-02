@@ -14,6 +14,8 @@ type Partner = {
 }
 
 const Partner: React.FC<Props> = ({ title, logo, partners }) => {
+  if (!partners?.length) return null
+
   return (
     <div className='container'>
       <section className='section'>
@@ -35,7 +37,7 @@ const Partner: React.FC<Props> = ({ title, logo, partners }) => {
         </h2>
         <div className='mx-auto mt-6 text-center md:mt-8'>
           <div className='flex flex-wrap items-center justify-center gap-4 md:gap-8'>
-            {partners.map((partner, index) => (
+            {partners?.map((partner, index) => (
               <a
                 href={partner.href}
                 target='_blank'
@@ -44,8 +46,8 @@ const Partner: React.FC<Props> = ({ title, logo, partners }) => {
                 <Image
                   src={partner.icon?.url}
                   alt='partner'
-                  width={partner.icon.width}
-                  height={partner.icon.height}
+                  width={partner.icon?.width}
+                  height={partner.icon?.height}
                   layout='fixed'
                   className='w-10 object-cover md:w-14'
                 />

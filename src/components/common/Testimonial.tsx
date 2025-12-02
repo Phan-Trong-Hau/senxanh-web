@@ -39,13 +39,15 @@ const Testimonial: React.FC<Props> = ({ title, testimonials }) => {
     ],
   }
 
+  if (!testimonials?.length) return null
+
   return (
-    <div className='container text-primary'>
+    <div className='text-primary container'>
       <section className='section'>
-        <h2 className='!font-bold text-2xl md:text-4xl text-center'>{title}</h2>
+        <h2 className='text-center text-2xl !font-bold md:text-4xl'>{title}</h2>
         <div className='mt-8'>
           <CustomCarousel {...settings}>
-            {testimonials.map((testimonial, index) => (
+            {testimonials?.map((testimonial, index) => (
               <SingleArticle
                 key={index}
                 testifier={testimonial.testifier}
