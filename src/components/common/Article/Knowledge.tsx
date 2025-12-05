@@ -52,28 +52,26 @@ const KnowledgeArticle = ({
 
   return (
     <div className={classNames('w-full', className)}>
-      <div className='flex h-full items-center gap-4 px-2'>
+      <div className='flex h-full items-start gap-3 md:gap-4'>
         <Border radius={12} className='shrink-0'>
           <Image
             src={thumbnail?.url}
             alt={title}
-            width={240}
-            height={140}
-            className='rounded-xl object-cover'
+            className='!h-[90px] !w-[140px] rounded-xl object-cover md:!h-[160px] md:!w-[240px]'
             preview={{ maskClassName: 'rounded-xl' }}
           />
         </Border>
 
-        <div className='flex h-full flex-1 flex-col items-start gap-3'>
+        <div className='flex h-full flex-1 flex-col items-start gap-1 md:gap-3'>
           <Tooltip title={title}>
             <div
               onClick={handleClick}
-              className='text-primary line-clamp-2 cursor-pointer text-xl font-bold'>
+              className='text-primary line-clamp-2 cursor-pointer text-base !leading-tight font-semibold md:text-xl md:font-bold'>
               {title}
             </div>
           </Tooltip>
           <Tooltip title={description}>
-            <p className='line-clamp-3 text-base text-gray-800 md:text-lg'>
+            <p className='!mb-0 line-clamp-2 text-sm text-gray-800 md:line-clamp-3 md:text-lg'>
               {description}
             </p>
           </Tooltip>
