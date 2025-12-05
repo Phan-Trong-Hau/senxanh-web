@@ -86,7 +86,7 @@ ol {
   background-clip: padding-box;
 }
 
-.border-primary>div {
+.border-primary > div {
   position: relative;
   z-index: 1;
   background-color: var(--border-background-color, #fff);
@@ -188,11 +188,11 @@ ol {
 
 @media screen and (max-width: 768px) {
   .ant-carousel .slick-prev {
-    inset-inline-start: 16px !important;
+    inset-inline-start: -24px !important;
   }
 
   .ant-carousel .slick-next {
-    inset-inline-end: 16px !important;
+    inset-inline-end: -24px !important;
   }
 }
 
@@ -200,7 +200,7 @@ ol {
   transform: rotate(180deg) !important;
 }
 
-.menu-items>li::after {
+.menu-items > li::after {
   bottom: 12px !important;
   border-bottom-width: 0px !important;
   transition: all 0.3s ease-in-out !important;
@@ -210,8 +210,8 @@ ol {
   border-radius: 2px;
 }
 
-.menu-items>.ant-menu-submenu-selected::after,
-.menu-items>.ant-menu-item-active::after,
-.menu-items>.ant-menu-item-selected::after {
+.menu-items > .ant-menu-submenu-selected::after,
+.menu-items > .ant-menu-item-active::after,
+.menu-items > .ant-menu-item-selected::after {
   opacity: 1;
 }

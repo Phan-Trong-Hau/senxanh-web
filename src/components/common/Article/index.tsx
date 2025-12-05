@@ -1,8 +1,7 @@
 'use client'
 
-import { App, Image, Tooltip } from 'antd'
+import { Image, Tooltip } from 'antd'
 import classNames from 'classnames'
-import { get } from 'http'
 import { useRouter } from 'next/navigation'
 
 import { getURLPageSlugWithType } from '@/utils/handle'
