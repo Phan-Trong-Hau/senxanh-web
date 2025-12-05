@@ -74,7 +74,7 @@ const AboutUs = ({ title, widgets }: Props) => {
               </h3>
               <Markdown
                 content={widgetActive?.description}
-                className='max-h-[110px] overflow-y-auto text-xs leading-tight md:max-h-[150px] md:text-base [&_p]:mt-2 [&_p]:md:mt-3'
+                className='mt-4 max-h-[110px] overflow-y-auto text-xs leading-tight md:max-h-[150px] md:text-base [&_p]:mt-2 [&_p]:md:mt-3'
               />
             </div>
           </div>
