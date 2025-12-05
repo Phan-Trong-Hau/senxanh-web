@@ -29,6 +29,8 @@ const ListArticle = ({ title, highlightTitle, articles, path, id }: Props) => {
     ],
   }
 
+  if (!articles?.length) return null
+
   return (
     <div className='container scroll-mt-28' id={id}>
       <section className='section'>
