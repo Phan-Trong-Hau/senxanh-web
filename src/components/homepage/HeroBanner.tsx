@@ -94,8 +94,8 @@ export default function HeroBanner({
           <Image
             loader={({ src }) => src}
             src={logo?.url}
-            width={logo.width}
-            height={logo.height}
+            width={logo?.width}
+            height={logo?.height}
             alt='logo sen xanh'
             layout='fixed'
             objectFit='contain'
