@@ -29,8 +29,8 @@ const Contact = ({ contacts }: Props) => {
                   loader={({ src }) => src}
                   src={contact.icon?.url}
                   alt={contact.name}
-                  width={contact.icon.width}
-                  height={contact.icon.height}
+                  width={contact.icon?.width}
+                  height={contact.icon?.height}
                   className='h-14 w-14'
                 />
               </Link>

@@ -51,8 +51,8 @@ const Footer = ({ logo, social, contacts, copyright }: Props) => {
                 <Image
                   src={social.icon?.url}
                   alt='social'
-                  width={social.icon.width}
-                  height={social.icon.height}
+                  width={social.icon?.width}
+                  height={social.icon?.height}
                   layout='fixed'
                   className='w-10 object-cover md:w-12'
                 />

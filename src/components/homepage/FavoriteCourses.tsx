@@ -1,10 +1,10 @@
 'use client'
 
-import { Image as Img } from 'antd'
+import { Image as Img, Tooltip } from 'antd'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Asset, CTA } from '@/utils/type'
+import { Asset } from '@/utils/type'
 
 import Border from '../common/Custom/Border'
 import Carousel from '../common/Custom/Carousel'
@@ -16,9 +16,8 @@ type Props = {
   courses: {
     title: string
     description: string
-    heroShot: Asset
-    heroShotInMobile: Asset
-    cta: CTA
+    thumbnail: Asset
+    slug: string
   }[]
 }
 
@@ -35,7 +34,7 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
           <Carousel>
             {courses.map((course, index) => (
               <div
-                className='!flex flex-col-reverse gap-5 !px-5 md:grid-cols-12 lg:!grid'
+                className='!flex flex-col-reverse gap-2 !px-5 md:grid-cols-12 md:gap-5 lg:!grid'
                 key={index}>
                 <div className='col-span-7 flex flex-col gap-2 md:gap-6'>
                   <div className='flex justify-center gap-2'>
@@ -46,11 +45,13 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
                       objectFit='contain'
                       src='https://senxanh-prod-media.s3.ap-southeast-1.amazonaws.com/icon_0142af1f48.png'
                       alt={course.title}
-                      className='h-[35px] object-cover'
+                      className='!hidden h-[35px] object-cover md:!block'
                     />
-                    <h3 className='text-primary mt-4 text-center text-lg font-bold md:text-3xl'>
-                      {course.title}
-                    </h3>
+                    <Tooltip title={course.title}>
+                      <h3 className='text-primary mt-4 line-clamp-2 text-center text-lg !font-bold md:text-3xl'>
+                        {course.title}
+                      </h3>
+                    </Tooltip>
                   </div>
                   <div className='relative flex h-full items-center justify-center overflow-hidden p-4 text-center text-[15px] text-white'>
                     <img
@@ -60,21 +61,19 @@ const FavoriteCourses = ({ title, highlightTitle, courses }: Props) => {
                     />
                     <Markdown
                       content={course.description}
-                      className='relative z-10 p-3 pb-6 text-xs md:p-5 md:pb-10 md:text-base'
+                      className='relative z-10 max-h-[90px] overflow-y-auto p-2 text-xs md:max-h-[190px] md:px-8 md:py-4 md:text-base'
                     />
                   </div>
-                  {course.cta?.href && (
-                    <Link href={course.cta.href} className='btn-primary mx-auto'>
-                      {course.cta.text}
-                    </Link>
-                  )}
+                  <Link href={`/courses/${course.slug}`} className='btn-primary mx-auto'>
+                    Xem chi tiết
+                  </Link>
                 </div>
                 <div className='col-span-5 flex justify-center lg:justify-center'>
                   <Border className='h-fit'>
                     <Img
-                      src={course.heroShot?.url}
+                      src={course.thumbnail?.url}
                       alt={course.title}
-                      className='max-h-[400px] rounded-lg object-cover leading-0'
+                      className='!h-[150px] w-full rounded-lg object-cover leading-0 md:!h-[300px]'
                       preview={{
                         maskClassName: 'rounded-lg',
                       }}

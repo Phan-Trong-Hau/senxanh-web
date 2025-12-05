@@ -38,13 +38,11 @@ const Highlight = ({ newsList }: Props) => {
     }
     return (
       <React.Fragment key={slug}>
-        <div className='p-2 pb-0'>
+        <div>
           <Border radius={12}>
             <Image
               src={thumbnail?.url}
               alt={title}
-              width='100%'
-              height={isFirst ? '380px' : '180px'}
               className='h-48 w-full rounded-xl object-cover'
               preview={{
                 maskClassName: 'rounded-xl',
@@ -52,18 +50,18 @@ const Highlight = ({ newsList }: Props) => {
             />
           </Border>
         </div>
-        <div className='flex flex-1 flex-col gap-2 p-4 pb-6'>
+        <div className='mt-4 flex flex-1 flex-col gap-2 px-2'>
           <div
             onClick={handleClick}
             className={classNames(
               'text-primary cursor-pointer font-bold',
-              isFirst ? 'my-4 text-4xl' : 'text-lg',
+              isFirst ? 'text-xl md:my-1 md:text-3xl' : 'text-lg',
             )}>
             {title}
           </div>
           {isFirst && (
             <Tooltip title={description} placement='top'>
-              <p className='line-clamp-3 text-base text-gray-900'>{description}</p>
+              <p className='!mb-1 line-clamp-3 text-base text-gray-900'>{description}</p>
             </Tooltip>
           )}
           <div className='text-secondary cursor-pointer font-bold' onClick={handleClick}>
@@ -77,11 +75,12 @@ const Highlight = ({ newsList }: Props) => {
   return (
     <div className='container'>
       <div className='section'>
-        <div className='flex gap-10'>
-          <div className='flex-1 basis-2/3'>
+        <div className='flex flex-col gap-10 md:flex-row'>
+          <div className='flex-1 md:basis-2/3'>
             {firstNews && renderNews(firstNews, true)}
           </div>
-          <div className='flex basis-1/3 flex-col'>
+
+          <div className='flex flex-col md:basis-1/3'>
             {restNews?.map(news => renderNews(news, false))}
           </div>
         </div>

@@ -39,7 +39,7 @@ const ArticleList = ({ articles }: Props) => {
   const currentArticles = articles.slice(startIndex, startIndex + pageSize)
 
   return (
-    <div className='flex w-full flex-col gap-6'>
+    <div className='flex w-full flex-col gap-4 md:gap-6'>
       {currentArticles.map((article, idx) => (
         <KnowledgeArticle key={idx} {...article} />
       ))}
