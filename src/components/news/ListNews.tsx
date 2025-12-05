@@ -42,7 +42,7 @@ const ListNews = ({ title, newsList }: Props) => {
   return (
     <div className='container'>
       <div className='section'>
-        <div className='text-primary mb-6 flex items-center justify-between text-center text-3xl font-bold'>
+        <div className='text-primary mb-6 flex flex-col items-center justify-between gap-2 text-center text-3xl font-bold md:flex-row'>
           <span className='w-full text-left'>{title}</span>
           <Search newsList={list} onSearch={handleSearch} />
         </div>
